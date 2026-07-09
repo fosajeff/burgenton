@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<title>Burgenton Equipment | Engineered for Africa. Built to Perform.</title>
+	<meta name="description" content="Burgenton Equipment supplies reliable construction and agro-processing equipment across Africa, backed by genuine spare parts, technical support and a 2-year warranty." />
+	<meta name="robots" content="index, follow" />
+	<link rel="canonical" href="https://www.burgenton.com/" />
+
+	<meta property="og:type" content="website" />
+	<meta property="og:site_name" content="Burgenton Equipment" />
+	<meta property="og:title" content="Burgenton Equipment | Engineered for Africa. Built to Perform." />
+	<meta property="og:description" content="Reliable construction and agro-processing equipment, genuine spare parts and lifecycle support across Africa." />
+	<meta property="og:url" content="https://www.burgenton.com/" />
+	<meta property="og:image" content="https://www.burgenton.com/assets/img/logo/burgenton-lockup.png" />
+	<meta property="og:locale" content="en_NG" />
+
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Burgenton Equipment | Engineered for Africa. Built to Perform." />
+	<meta name="twitter:description" content="Reliable construction and agro-processing equipment, genuine spare parts and lifecycle support across Africa." />
+	<meta name="twitter:image" content="https://www.burgenton.com/assets/img/logo/burgenton-lockup.png" />
+
+	<meta name="theme-color" content="#040404" />
+
+	<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png" />
+	<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png" />
+	<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png" />
+	<link rel="manifest" href="site.webmanifest" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+	/>
+
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="assets/fontawsome/css/all.min.css" />
+	<link rel="stylesheet" href="assets/css/burgenton.css" />
+	<link rel="stylesheet" href="assets/css/animate.min.css" />
+
+	<style>
+		/* Home-page-only layout rules (not part of the reusable design system) */
+		.hero { position: relative; min-height: 640px; display: flex; align-items: flex-end; color: var(--color-primary-0); overflow: hidden; }
+		.hero__media { position: absolute; inset: 0; z-index: 0; }
+		.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+		.hero__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,4,4,0.25) 0%, rgba(4,4,4,0.55) 55%, rgba(4,4,4,0.88) 100%); z-index: 1; }
+		.hero__content { position: relative; z-index: 2; padding: var(--space-16) 0 var(--space-10); max-width: 680px; }
+		@media (max-width: 767.98px) { .hero { min-height: 560px; } .hero__content { padding: var(--space-12) 0 var(--space-8); } }
+		.trust-bar { background-color: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.08); }
+		.trust-bar__row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3) var(--space-8); padding: var(--space-4) 0; }
+		.trust-bar__item { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-body-sm); font-weight: 600; color: var(--text-on-dark); white-space: nowrap; }
+		.trust-bar__item i { color: var(--color-accent-500); }
+		.split { display: grid; grid-template-columns: 1fr; gap: var(--space-8); align-items: center; }
+		@media (min-width: 992px) { .split { grid-template-columns: 1fr 1fr; gap: var(--space-10); } .split--reverse .split__media { order: 2; } }
+		.split__media img { border-radius: var(--radius-lg); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+		.split__media.is-flat { background-color: var(--surface-dark-raised); border-radius: var(--radius-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
+		.split__media.is-flat i { font-size: 64px; color: var(--color-accent-500); opacity: .8; }
+		.tag-list { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0 var(--space-6); }
+		.tag { font-size: var(--text-body-sm); font-weight: 600; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1.5px solid var(--border-default); }
+		.is-on-dark .tag, .tag.is-on-dark { border-color: rgba(255,255,255,0.2); color: var(--text-on-dark); }
+		.video-band { position: relative; background-color: var(--surface-dark); overflow: hidden; }
+		.video-band video { width: 100%; display: block; max-height: 560px; object-fit: cover; }
+		.video-band__caption { padding: var(--space-3) 0; text-align: center; }
+		.pillar { display: flex; gap: var(--space-4); }
+		.pillar__icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: var(--radius-md); background-color: var(--surface-dark-raised); display: flex; align-items: center; justify-content: center; color: var(--color-accent-500); font-size: 20px; }
+		.story-card { background-color: var(--surface-page); border-radius: var(--radius-md); padding: var(--space-6); box-shadow: var(--shadow-sm); }
+		.story-card__quote { font-family: var(--font-heading); font-size: var(--text-h4); font-weight: 700; line-height: 1.3; margin-bottom: var(--space-4); }
+		.story-card__meta { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-body-sm); color: var(--text-muted); }
+	</style>
+</head>
+<body>
+
+	<a class="skip-link" href="#main-content">Skip to main content</a>
+
+	<header class="site-header" id="site-header">
+		<div class="header-utility">
+			<div class="container">
+				<div class="header-utility__row">
+					<div class="header-utility__links">
+						<span><i class="fas fa-clock" aria-hidden="true"></i> Mon&ndash;Fri: 8am&ndash;5pm, Sat: 9am&ndash;1pm</span>
+						<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Benin City, Nigeria</span>
+					</div>
+					<div class="header-utility__links">
+						<a href="https://wa.me/2340000000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+						<a href="tel:+2340000000000"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
+						<a href="mailto:info@burgenton.com"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="header-main">
+				<a class="header-logo" href="/">
+					<img src="assets/img/logo/burgenton-lockup.png" alt="Burgenton Equipment" width="160" height="82" />
+				</a>
+
+				<nav class="nav-primary" aria-label="Primary">
+					<div class="nav-primary__item is-active">
+						<a class="nav-primary__link" href="/">Home</a>
+					</div>
+					<div class="nav-primary__item">
+						<a class="nav-primary__link" href="/about">About</a>
+					</div>
+					<div class="nav-primary__item">
+						<a class="nav-primary__link" href="/products/construction" aria-haspopup="true">
+							Products <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+						</a>
+						<div class="nav-dropdown nav-dropdown--mega">
+							<div>
+								<div class="card__eyebrow" style="margin-bottom:8px">Construction</div>
+								<a class="nav-dropdown__link" href="/products/construction">All Construction Equipment</a>
+								<a class="nav-dropdown__link" href="/products/construction/self-loading-concrete-mixers">Self-Loading Concrete Mixers</a>
+								<a class="nav-dropdown__link" href="/products/construction/concrete-batching-plants">Concrete Batching Plants</a>
+								<a class="nav-dropdown__link" href="/products/construction/concrete-pumps">Concrete Pumps</a>
+								<a class="nav-dropdown__link" href="/products/construction/block-making-machines">Block Making Machines</a>
+							</div>
+							<div>
+								<div class="card__eyebrow" style="margin-bottom:8px">Agro-Processing</div>
+								<a class="nav-dropdown__link" href="/products/agro-processing">All Agro-Processing Equipment</a>
+								<a class="nav-dropdown__link" href="/products/agro-processing/cocoa-processing-equipment">Cocoa Processing</a>
+								<a class="nav-dropdown__link" href="/products/agro-processing/cassava-processing-equipment">Cassava Processing</a>
+								<a class="nav-dropdown__link" href="/products/agro-processing/palm-oil-processing-equipment">Palm Oil Processing</a>
+								<a class="nav-dropdown__link" href="/products/agro-processing/cashew-processing-equipment">Cashew Processing</a>
+							</div>
+							<div>
+								<div class="card__eyebrow" style="margin-bottom:8px">More</div>
+								<a class="nav-dropdown__link" href="/products/spare-parts">Spare Parts</a>
+								<a class="nav-dropdown__link" href="/why-burgenton">Why Buy Burgenton</a>
+							</div>
+						</div>
+					</div>
+					<div class="nav-primary__item">
+						<a class="nav-primary__link" href="/solutions/construction" aria-haspopup="true">
+							Solutions <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+						</a>
+						<div class="nav-dropdown">
+							<a class="nav-dropdown__link" href="/solutions/construction">Construction Solutions</a>
+							<a class="nav-dropdown__link" href="/solutions/agricultural">Agricultural Solutions</a>
+						</div>
+					</div>
+					<div class="nav-primary__item">
+						<a class="nav-primary__link" href="/support" aria-haspopup="true">
+							Support <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+						</a>
+						<div class="nav-dropdown">
+							<a class="nav-dropdown__link" href="/support/warranty">Warranty Program</a>
+							<a class="nav-dropdown__link" href="/support/spare-parts">Spare Parts Support</a>
+							<a class="nav-dropdown__link" href="/support/technical-assistance">Technical Assistance</a>
+							<a class="nav-dropdown__link" href="/support/training">Operator Training</a>
+							<a class="nav-dropdown__link" href="/support/maintenance">Maintenance Services</a>
+							<a class="nav-dropdown__link" href="/support/documentation">Product Documentation</a>
+						</div>
+					</div>
+					<div class="nav-primary__item">
+						<a class="nav-primary__link" href="/partners" aria-haspopup="true">
+							Partners <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+						</a>
+						<div class="nav-dropdown">
+							<a class="nav-dropdown__link" href="/partners/dealers">Become a Dealer</a>
+							<a class="nav-dropdown__link" href="/partners/distributors">Regional Distributors</a>
+							<a class="nav-dropdown__link" href="/partners/service-partners">Service Partners</a>
+						</div>
+					</div>
+					<div class="nav-primary__item">
+						<a class="nav-primary__link" href="/contact">Contact</a>
+					</div>
+				</nav>
+
+				<div class="header-actions">
+					<a class="btn-icon is-on-dark" href="tel:+2340000000000" aria-label="Call Burgenton">
+						<i class="fas fa-phone-alt" aria-hidden="true"></i>
+					</a>
+					<a class="btn btn--primary btn--md" href="/contact#quote">
+						Request a Quote <i class="fas fa-arrow-right" aria-hidden="true"></i>
+					</a>
+					<button class="nav-toggle btn-icon is-on-dark" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+						<i class="fas fa-bars" aria-hidden="true"></i>
+					</button>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div class="header-spacer"></div>
+
+	<div class="mobile-nav-overlay"></div>
+	<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+		<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: var(--space-6);">
+			<img src="assets/img/logo/burgenton-lockup.png" alt="Burgenton Equipment" width="120" height="62" />
+			<button class="mobile-nav__close btn-icon is-on-dark" type="button" aria-label="Close menu">
+				<i class="fas fa-times" aria-hidden="true"></i>
+			</button>
+		</div>
+		<a class="mobile-nav__link" href="/">Home</a>
+		<a class="mobile-nav__link" href="/about">About</a>
+		<a class="mobile-nav__link" href="/products/construction">Products</a>
+		<a class="mobile-nav__link" href="/solutions/construction">Solutions</a>
+		<a class="mobile-nav__link" href="/support">Support</a>
+		<a class="mobile-nav__link" href="/partners">Partners</a>
+		<a class="mobile-nav__link" href="/contact">Contact</a>
+		<div style="margin-top: var(--space-6);">
+			<a class="btn btn--primary btn--md" style="width:100%" href="/contact#quote">Request a Quote</a>
+		</div>
+		<div class="mobile-nav__social">
+			<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+			<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+			<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+		</div>
+	</nav>
+
+	<main id="main-content">
+
+		<!-- ================= HERO — "Who are they? What do they claim?" ================= -->
+		<section class="hero">
+			<div class="hero__media">
+				<img src="burgunton/product-5.jpeg" alt="Burgenton self-loading concrete mixers staged and ready for deployment" />
+			</div>
+			<div class="hero__scrim"></div>
+			<div class="container">
+				<div class="hero__content">
+					<span class="text-eyebrow is-on-dark wow fadeInUp" data-wow-delay=".1s">Burgenton Equipment</span>
+					<h1 class="text-display wow fadeInUp" data-wow-delay=".25s">Engineered for Africa. Built to Perform.</h1>
+					<p class="text-lead wow fadeInUp" data-wow-delay=".4s" style="color: var(--color-primary-0); opacity:.92; margin-top: var(--space-4);">
+						Burgenton Equipment delivers reliable construction and agro-processing equipment
+						designed to help businesses build, produce, and grow with confidence &mdash;
+						supported by genuine spare parts, technical expertise, and dependable warranty coverage.
+					</p>
+					<div class="wow fadeInUp" data-wow-delay=".55s" style="display:flex; gap: var(--space-4); flex-wrap:wrap; margin-top: var(--space-6);">
+						<a class="btn btn--primary btn--lg" href="/products/construction">Explore Products <i class="fas fa-arrow-right"></i></a>
+						<a class="btn btn--outline-inverse btn--lg" href="/contact#quote">Request a Quote</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= TRUST BAR — "Why trust them?" answered in the first few seconds ================= -->
+		<div class="trust-bar">
+			<div class="container">
+				<div class="trust-bar__row">
+					<span class="trust-bar__item"><i class="fas fa-shield-alt"></i> 2-Year Warranty</span>
+					<span class="trust-bar__item"><i class="fas fa-cogs"></i> Genuine Spare Parts</span>
+					<span class="trust-bar__item"><i class="fas fa-headset"></i> Technical Support</span>
+					<span class="trust-bar__item"><i class="fas fa-map-marked-alt"></i> Dealer Network</span>
+					<span class="trust-bar__item"><i class="fas fa-truck"></i> Fast Delivery</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- ================= ABOUT STRIP — "Who are they, specifically?" (extracted from About page content) ================= -->
+		<section class="section section--light">
+			<div class="container">
+				<div class="split">
+					<div>
+						<span class="text-eyebrow">About Burgenton</span>
+						<h2>Building reliable equipment solutions for Africa&rsquo;s growth</h2>
+						<p class="text-lead" style="margin-top: var(--space-4);">
+							Burgenton Equipment was established with a clear purpose: to provide reliable,
+							high-performance equipment that supports Africa&rsquo;s construction, industrial,
+							and agricultural development.
+						</p>
+						<p style="margin-top: var(--space-4);">
+							As infrastructure expands and industries grow across the continent, businesses
+							require equipment they can depend on to deliver results efficiently and
+							profitably. Burgenton exists to meet that need through quality equipment,
+							dependable support, and long-term partnerships &mdash; because reliable equipment
+							is more than a machine, it is an investment in productivity, growth, and opportunity.
+						</p>
+						<a class="btn btn--outline btn--md" href="/about" style="margin-top: var(--space-6);">Our Story <i class="fas fa-arrow-right"></i></a>
+					</div>
+					<div class="split__media">
+						<img src="burgunton/product-2.jpeg" alt="Burgenton concrete pump, studio view" loading="lazy" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= FEATURED PRODUCTS — "What do they provide?" ================= -->
+		<section class="section section--tint">
+			<div class="container">
+				<div class="section__header">
+					<span class="text-eyebrow">Our Products</span>
+					<h2>Featured Equipment</h2>
+					<p class="section__intro text-muted">
+						Discover our range of high-performance equipment engineered to deliver
+						productivity, reliability, and long-term value across construction and
+						agro-processing industries.
+					</p>
+				</div>
+
+				<div class="grid grid--3up">
+					<article class="card wow fadeInUp" data-wow-delay=".1s">
+						<div class="card__media">
+							<img src="burgunton/product-1.jpeg" alt="Burgenton trailer-mounted concrete pump" loading="lazy" />
+						</div>
+						<div class="card__body">
+							<span class="card__eyebrow">Construction Equipment</span>
+							<h3 class="card__title">Concrete Pumps</h3>
+							<p class="card__text">Fast, accurate concrete placement for multi-storey builds, bridges and large infrastructure pours.</p>
+							<div class="card__footer">
+								<a class="btn btn--ghost" href="/products/construction/concrete-pumps">View Details</a>
+							</div>
+						</div>
+					</article>
+
+					<article class="card wow fadeInUp" data-wow-delay=".2s">
+						<div class="card__media">
+							<img src="burgunton/product-3.jpeg" alt="Burgenton electric forklift" loading="lazy" />
+						</div>
+						<div class="card__body">
+							<span class="card__eyebrow">Construction Equipment</span>
+							<h3 class="card__title">Electric Forklifts</h3>
+							<p class="card__text">Safe, efficient material handling for warehouses, yards and agro-processing facilities.</p>
+							<div class="card__footer">
+								<a class="btn btn--ghost" href="/products/construction/electric-forklifts">View Details</a>
+							</div>
+						</div>
+					</article>
+
+					<article class="card wow fadeInUp" data-wow-delay=".3s">
+						<div class="card__media">
+							<img src="burgunton/product-4.jpeg" alt="Burgenton electric forklift, front view with raised forks" loading="lazy" />
+						</div>
+						<div class="card__body">
+							<span class="card__eyebrow">Construction Equipment</span>
+							<h3 class="card__title">Self-Loading Concrete Mixers</h3>
+							<p class="card__text">Load, batch, mix, transport and pour with one machine &mdash; on-site, on demand.</p>
+							<div class="card__footer">
+								<a class="btn btn--ghost" href="/products/construction/self-loading-concrete-mixers">View Details</a>
+							</div>
+						</div>
+					</article>
+				</div>
+
+				<div style="text-align:center; margin-top: var(--space-8);">
+					<a class="btn btn--secondary btn--md" href="/products/construction">View All Products <i class="fas fa-arrow-right"></i></a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= CONSTRUCTION SOLUTIONS ================= -->
+		<section class="section section--light">
+			<div class="container">
+				<div class="split">
+					<div>
+						<span class="text-eyebrow">Construction Solutions</span>
+						<h2>Construction Solutions That Drive Progress</h2>
+						<p style="margin-top: var(--space-4);">
+							Modern construction demands equipment that delivers performance, efficiency
+							and reliability. Burgenton construction equipment helps contractors,
+							developers and infrastructure companies complete projects faster, reduce
+							operating costs, and maximize productivity &mdash; whether you&rsquo;re building
+							housing estates, commercial developments, roads, bridges, or industrial facilities.
+						</p>
+						<div class="tag-list">
+							<span class="tag">Road Construction</span>
+							<span class="tag">Housing Development</span>
+							<span class="tag">Commercial Construction</span>
+							<span class="tag">Infrastructure Projects</span>
+							<span class="tag">Industrial Facilities</span>
+						</div>
+						<a class="btn btn--outline btn--md" href="/solutions/construction">Explore Construction Equipment <i class="fas fa-arrow-right"></i></a>
+					</div>
+					<div class="split__media">
+						<img src="burgunton/product-1.jpeg" alt="Burgenton concrete pump on a construction site" loading="lazy" />
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= AGRO-PROCESSING SOLUTIONS (no photography available — icon treatment, no substitute image) ================= -->
+		<section class="section section--dark section--texture">
+			<div class="container">
+				<div class="split split--reverse">
+					<div>
+						<span class="text-eyebrow is-on-dark">Agro-Processing Solutions</span>
+						<h2>Powering Agricultural Value Addition</h2>
+						<p style="margin-top: var(--space-4); color: var(--text-muted-on-dark);">
+							Africa&rsquo;s agricultural future depends on efficient processing and value
+							addition. Burgenton agro-processing equipment helps farmers, cooperatives,
+							processors and manufacturers transform raw agricultural products into
+							higher-value goods ready for local and international markets &mdash; improving
+							efficiency, product quality, and profitability at every stage.
+						</p>
+						<div class="tag-list">
+							<span class="tag is-on-dark">Cocoa Processing</span>
+							<span class="tag is-on-dark">Cassava Processing</span>
+							<span class="tag is-on-dark">Palm Oil Processing</span>
+							<span class="tag is-on-dark">Cashew Processing</span>
+						</div>
+						<a class="btn btn--outline-inverse btn--md" href="/solutions/agricultural">Explore Agro-Processing Equipment <i class="fas fa-arrow-right"></i></a>
+					</div>
+					<div class="split__media is-flat" aria-hidden="true">
+						<i class="fas fa-seedling"></i>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= PRODUCT DEMONSTRATION VIDEO (honestly captioned — factory demo, not an African site) ================= -->
+		<section class="video-band">
+			<video autoplay muted loop playsinline aria-label="Burgenton self-loading concrete mixer demonstration">
+				<source src="burgunton/video-2.mp4" type="video/mp4" />
+			</video>
+			<div class="container video-band__caption">
+				<p class="text-sm text-muted is-on-dark">Product demonstration: Burgenton Self-Loading Concrete Mixer &mdash; load, mix and discharge in one machine.</p>
+			</div>
+		</section>
+
+		<!-- ================= WHY BUY BURGENTON — "Why are they better?" ================= -->
+		<section class="section section--dark">
+			<div class="container">
+				<div class="section__header">
+					<span class="text-eyebrow is-on-dark">Why Buy Burgenton</span>
+					<h2>Equipment is a long-term investment. We deliver more than machines.</h2>
+					<p class="section__intro" style="color: var(--text-muted-on-dark);">
+						We provide the reliability, support, and expertise our customers need to
+						operate with confidence.
+					</p>
+				</div>
+
+				<div class="grid grid--3up" style="row-gap: var(--space-8);">
+					<div class="pillar wow fadeInUp" data-wow-delay=".1s">
+						<div class="pillar__icon"><i class="fas fa-globe-africa"></i></div>
+						<div>
+							<h4 style="color:var(--text-on-dark)">Engineered for African Conditions</h4>
+							<p class="text-sm" style="color:var(--text-muted-on-dark)">Selected and configured to perform reliably in demanding, real-world operating environments.</p>
+						</div>
+					</div>
+					<div class="pillar wow fadeInUp" data-wow-delay=".2s">
+						<div class="pillar__icon"><i class="fas fa-cogs"></i></div>
+						<div>
+							<h4 style="color:var(--text-on-dark)">Genuine Spare Parts Support</h4>
+							<p class="text-sm" style="color:var(--text-muted-on-dark)">A commitment to parts availability that reduces downtime and protects equipment performance.</p>
+						</div>
+					</div>
+					<div class="pillar wow fadeInUp" data-wow-delay=".3s">
+						<div class="pillar__icon"><i class="fas fa-shield-alt"></i></div>
+						<div>
+							<h4 style="color:var(--text-on-dark)">Comprehensive Warranty Protection</h4>
+							<p class="text-sm" style="color:var(--text-muted-on-dark)">Every eligible machine is backed by warranty coverage, giving confidence in your investment.</p>
+						</div>
+					</div>
+					<div class="pillar wow fadeInUp" data-wow-delay=".1s">
+						<div class="pillar__icon"><i class="fas fa-headset"></i></div>
+						<div>
+							<h4 style="color:var(--text-on-dark)">Technical Expertise</h4>
+							<p class="text-sm" style="color:var(--text-muted-on-dark)">Specialists available for product selection, commissioning, troubleshooting and maintenance guidance.</p>
+						</div>
+					</div>
+					<div class="pillar wow fadeInUp" data-wow-delay=".2s">
+						<div class="pillar__icon"><i class="fas fa-graduation-cap"></i></div>
+						<div>
+							<h4 style="color:var(--text-on-dark)">Training &amp; Operator Support</h4>
+							<p class="text-sm" style="color:var(--text-muted-on-dark)">Well-trained operators achieve better performance, improved safety, and lower operating costs.</p>
+						</div>
+					</div>
+					<div class="pillar wow fadeInUp" data-wow-delay=".3s">
+						<div class="pillar__icon"><i class="fas fa-handshake"></i></div>
+						<div>
+							<h4 style="color:var(--text-on-dark)">Long-Term Partnership</h4>
+							<p class="text-sm" style="color:var(--text-muted-on-dark)">Our relationship doesn&rsquo;t end at delivery &mdash; we support customers through the entire equipment lifecycle.</p>
+						</div>
+					</div>
+				</div>
+
+				<div style="text-align:center; margin-top: var(--space-10);">
+					<a class="btn btn--outline-inverse btn--md" href="/why-burgenton">Learn More <i class="fas fa-arrow-right"></i></a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= CUSTOMER SUCCESS STORIES — "Proof" (PDF's own sample layout, not fabricated named case studies) ================= -->
+		<section class="section section--tint">
+			<div class="container">
+				<div class="section__header">
+					<span class="text-eyebrow">Customer Success</span>
+					<h2>Supporting Success Across Africa</h2>
+					<p class="section__intro text-muted">
+						Every Burgenton machine represents a partnership built on trust, performance,
+						and long-term support. We are proud to help contractors, developers and
+						agro-processors achieve their operational goals through reliable equipment solutions.
+					</p>
+				</div>
+
+				<div class="grid grid--2up">
+					<div class="story-card wow fadeInUp" data-wow-delay=".1s">
+						<p class="story-card__quote">&ldquo;Reduced concrete production costs while improving project delivery timelines.&rdquo;</p>
+						<div class="story-card__meta"><i class="fas fa-hard-hat" aria-hidden="true"></i> Construction Contractor &middot; Self-Loading Concrete Mixers</div>
+					</div>
+					<div class="story-card wow fadeInUp" data-wow-delay=".2s">
+						<p class="story-card__quote">&ldquo;Expanded production capacity and improved processing efficiency.&rdquo;</p>
+						<div class="story-card__meta"><i class="fas fa-seedling" aria-hidden="true"></i> Agro-Processor &middot; Agro-Processing Equipment</div>
+					</div>
+				</div>
+
+				<div style="text-align:center; margin-top: var(--space-8);">
+					<a class="btn btn--outline btn--md" href="/success-stories">View Success Stories <i class="fas fa-arrow-right"></i></a>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= DEALER OPPORTUNITIES ================= -->
+		<section class="section section--light">
+			<div class="container">
+				<div class="split split--reverse">
+					<div>
+						<span class="text-eyebrow">Dealer Opportunities</span>
+						<h2>Grow With Burgenton</h2>
+						<p style="margin-top: var(--space-4);">
+							As Burgenton expands across Africa, we are building a network of trusted
+							dealers, distributors and service partners. We are seeking ambitious
+							partners who share our commitment to quality, customer support, and
+							long-term growth.
+						</p>
+						<div class="tag-list">
+							<span class="tag">Exclusive Territories</span>
+							<span class="tag">Product Training</span>
+							<span class="tag">Sales Support</span>
+							<span class="tag">Technical Assistance</span>
+							<span class="tag">Marketing Support</span>
+						</div>
+						<a class="btn btn--outline btn--md" href="/partners/dealers">Become a Dealer <i class="fas fa-arrow-right"></i></a>
+					</div>
+					<div class="split__media is-flat" aria-hidden="true">
+						<i class="fas fa-map-marked-alt"></i>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= FINAL CTA — "How can someone contact them?" ================= -->
+		<section class="section section--accent">
+			<div class="container" style="text-align:center;">
+				<h2>Let&rsquo;s Build Success Together</h2>
+				<p class="text-lead" style="color: rgba(255,255,255,0.9); max-width: 620px; margin: var(--space-3) auto var(--space-6);">
+					Whether you are planning a construction project, expanding processing capacity,
+					or exploring dealership opportunities, our team is ready to help. Speak with a
+					Burgenton specialist today to discuss your requirements.
+				</p>
+				<div style="display:flex; gap: var(--space-4); justify-content:center; flex-wrap:wrap;">
+					<a class="btn btn--secondary btn--lg" href="/contact#quote" id="quote">Request a Quote</a>
+					<a class="btn btn--outline-inverse btn--lg" href="/contact">Contact Us</a>
+				</div>
+				<div style="display:flex; gap: var(--space-6); justify-content:center; flex-wrap:wrap; margin-top: var(--space-8); font-size: var(--text-body-sm);">
+					<a href="tel:+2340000000000" style="color:var(--color-primary-0)"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
+					<a href="https://wa.me/2340000000000" style="color:var(--color-primary-0)"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+					<a href="mailto:info@burgenton.com" style="color:var(--color-primary-0)"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
+				</div>
+			</div>
+		</section>
+
+	</main>
+
+	<footer class="site-footer">
+		<div class="container">
+			<div class="footer-main">
+				<div class="footer-widget">
+					<a class="footer-logo" href="/">
+						<img src="assets/img/logo/burgenton-wordmark.png" alt="Burgenton Equipment" width="140" height="28" />
+					</a>
+					<p class="text-sm" style="max-width:34ch; margin-bottom: var(--space-5);">
+						Reliable construction and agro-processing equipment, genuine parts, and
+						lifecycle support &mdash; engineered for Africa, built to perform.
+					</p>
+					<div class="footer-contact">
+						<a href="tel:+2340000000000"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
+						<a href="https://wa.me/2340000000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+						<a href="mailto:info@burgenton.com"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
+						<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Benin City, Edo State, Nigeria</span>
+					</div>
+					<div class="footer-social">
+						<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+						<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+						<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+					</div>
+				</div>
+
+				<div class="footer-widget">
+					<h4 class="footer-widget__title">Products</h4>
+					<nav class="footer-links" aria-label="Products">
+						<a href="/products/construction">Construction Equipment</a>
+						<a href="/products/agro-processing">Agro-Processing Equipment</a>
+						<a href="/products/spare-parts">Spare Parts</a>
+						<a href="/why-burgenton">Why Buy Burgenton</a>
+					</nav>
+				</div>
+
+				<div class="footer-widget">
+					<h4 class="footer-widget__title">Resources</h4>
+					<nav class="footer-links" aria-label="Resources">
+						<a href="/resources">Knowledge Centre</a>
+						<a href="/success-stories">Success Stories</a>
+						<a href="/support">Support</a>
+						<a href="/about">About Burgenton</a>
+					</nav>
+				</div>
+
+				<div class="footer-widget">
+					<h4 class="footer-widget__title">Partners</h4>
+					<nav class="footer-links" aria-label="Partners" style="margin-bottom: var(--space-5);">
+						<a href="/partners/dealers">Become a Dealer</a>
+						<a href="/partners/distributors">Regional Distributors</a>
+						<a href="/partners/service-partners">Service Partners</a>
+						<a href="/contact">Contact Us</a>
+					</nav>
+
+					<h4 class="footer-widget__title">Stay Informed</h4>
+					<form class="footer-newsletter" action="#" method="post">
+						<label class="sr-only" for="footer-newsletter-email">Email address</label>
+						<input class="form-control" type="email" id="footer-newsletter-email" name="email" placeholder="Your email" required />
+						<button class="btn btn--primary btn--md" type="submit">
+							<span class="sr-only">Subscribe</span>
+							<i class="fas fa-arrow-right" aria-hidden="true"></i>
+						</button>
+					</form>
+				</div>
+			</div>
+
+			<div class="footer-bottom">
+				<p>&copy; <span id="footer-year">2026</span> Burgenton Limited. All rights reserved.</p>
+				<nav aria-label="Legal">
+					<a href="/contact">Contact Us</a>
+				</nav>
+			</div>
+		</div>
+	</footer>
+
+	<button class="scroll-to-top" type="button" aria-label="Scroll to top">
+		<i class="fas fa-angle-up" aria-hidden="true"></i>
+	</button>
+
+	<script>
+		document.getElementById('footer-year').textContent = new Date().getFullYear();
+	</script>
+
+	<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
+	<script src="assets/js/wow.min.js"></script>
+	<script src="assets/js/burgenton.js"></script>
+</body>
+</html>

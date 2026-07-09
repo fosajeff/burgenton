@@ -1,0 +1,8 @@
+# Burgenton Equipment
+# NOTE: www.burgenton.com is a placeholder domain — update the Sitemap
+# line below once the production domain is confirmed.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.burgenton.com/sitemap.xml
