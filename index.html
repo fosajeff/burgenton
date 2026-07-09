@@ -36,17 +36,16 @@
 		rel="stylesheet"
 		href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
 	/>
-
-	<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="assets/fontawsome/css/all.min.css" />
 	<link rel="stylesheet" href="assets/css/burgenton.css" />
-	<link rel="stylesheet" href="assets/css/animate.min.css" />
+	<link rel="stylesheet" href="assets/css/products.css" />
+	<link rel="stylesheet" href="assets/css/services.css" />
 
 	<style>
 		/* Home-page-only layout rules (not part of the reusable design system) */
 		.hero { position: relative; min-height: 640px; display: flex; align-items: flex-end; color: var(--color-primary-0); overflow: hidden; }
 		.hero__media { position: absolute; inset: 0; z-index: 0; }
-		.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+		.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; animation: kenburns 24s ease-in-out infinite alternate; }
 		.hero__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,4,4,0.25) 0%, rgba(4,4,4,0.55) 55%, rgba(4,4,4,0.88) 100%); z-index: 1; }
 		.hero__content { position: relative; z-index: 2; padding: var(--space-16) 0 var(--space-10); max-width: 680px; }
 		@media (max-width: 767.98px) { .hero { min-height: 560px; } .hero__content { padding: var(--space-12) 0 var(--space-8); } }
@@ -59,18 +58,40 @@
 		.split__media img { border-radius: var(--radius-lg); width: 100%; aspect-ratio: 4/3; object-fit: cover; }
 		.split__media.is-flat { background-color: var(--surface-dark-raised); border-radius: var(--radius-lg); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; }
 		.split__media.is-flat i { font-size: 64px; color: var(--color-accent-500); opacity: .8; }
-		.tag-list { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0 var(--space-6); }
-		.tag { font-size: var(--text-body-sm); font-weight: 600; padding: var(--space-1) var(--space-3); border-radius: var(--radius-full); border: 1.5px solid var(--border-default); }
-		.is-on-dark .tag, .tag.is-on-dark { border-color: rgba(255,255,255,0.2); color: var(--text-on-dark); }
+		.tag-list { margin: var(--space-4) 0 var(--space-6); } /* .tag-list/.tag base rules now live in burgenton.css §12 */
 		.video-band { position: relative; background-color: var(--surface-dark); overflow: hidden; }
 		.video-band video { width: 100%; display: block; max-height: 560px; object-fit: cover; }
 		.video-band__caption { padding: var(--space-3) 0; text-align: center; }
-		.pillar { display: flex; gap: var(--space-4); }
-		.pillar__icon { flex-shrink: 0; width: 52px; height: 52px; border-radius: var(--radius-md); background-color: var(--surface-dark-raised); display: flex; align-items: center; justify-content: center; color: var(--color-accent-500); font-size: 20px; }
-		.story-card { background-color: var(--surface-page); border-radius: var(--radius-md); padding: var(--space-6); box-shadow: var(--shadow-sm); }
-		.story-card__quote { font-family: var(--font-heading); font-size: var(--text-h4); font-weight: 700; line-height: 1.3; margin-bottom: var(--space-4); }
-		.story-card__meta { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-body-sm); color: var(--text-muted); }
+		/* .pillar and .story-card now live in burgenton.css §14/§15 — reused by About and Success Stories */
 	</style>
+
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Burgenton Equipment",
+		"legalName": "Burgenton Limited",
+		"url": "https://www.burgenton.com/",
+		"logo": "https://www.burgenton.com/assets/img/logo/burgenton-lockup.png",
+		"description": "Reliable construction and agro-processing equipment, genuine spare parts and lifecycle support across Africa.",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "No. 3, Peace Avenue, Off Okundia Street, 2nd Ugbor Road, G.R.A.",
+			"addressLocality": "Benin City",
+			"addressRegion": "Edo State",
+			"addressCountry": "NG"
+		},
+		"sameAs": []
+	}
+	</script>
+	<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"name": "Burgenton Equipment",
+		"url": "https://www.burgenton.com/"
+	}
+	</script>
 </head>
 <body>
 
@@ -85,8 +106,8 @@
 						<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Benin City, Nigeria</span>
 					</div>
 					<div class="header-utility__links">
-						<a href="https://wa.me/2340000000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
-						<a href="tel:+2340000000000"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
+						<a href="/contact#message-form"><i class="fab fa-whatsapp" aria-hidden="true"></i> Message Us</a>
+						<a href="/contact#message-form"><i class="fas fa-phone-alt" aria-hidden="true"></i> Request a Callback</a>
 						<a href="mailto:info@burgenton.com"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
 					</div>
 				</div>
@@ -172,7 +193,7 @@
 				</nav>
 
 				<div class="header-actions">
-					<a class="btn-icon is-on-dark" href="tel:+2340000000000" aria-label="Call Burgenton">
+					<a class="btn-icon is-on-dark" href="/contact#message-form" aria-label="Contact Burgenton">
 						<i class="fas fa-phone-alt" aria-hidden="true"></i>
 					</a>
 					<a class="btn btn--primary btn--md" href="/contact#quote">
@@ -218,7 +239,10 @@
 		<!-- ================= HERO — "Who are they? What do they claim?" ================= -->
 		<section class="hero">
 			<div class="hero__media">
-				<img src="burgunton/product-5.jpeg" alt="Burgenton self-loading concrete mixers staged and ready for deployment" />
+				<picture>
+					<source srcset="assets/img/products/self-loading-mixer-1.webp" type="image/webp" />
+					<img src="assets/img/products/self-loading-mixer-1.jpg" alt="Burgenton self-loading concrete mixers staged and ready for deployment" width="810" height="1080" loading="eager" fetchpriority="high" />
+				</picture>
 			</div>
 			<div class="hero__scrim"></div>
 			<div class="container">
@@ -251,6 +275,30 @@
 			</div>
 		</div>
 
+		<!-- ================= AT A GLANCE — real, countable facts only (no invented business metrics) ================= -->
+		<section class="section section--dark section--tight section--texture">
+			<div class="container">
+				<div class="grid grid--4up">
+					<div class="card card--stat wow fadeInUp" data-wow-delay=".1s">
+						<span class="card__value">2</span>
+						<span class="card__label">Equipment Categories</span>
+					</div>
+					<div class="card card--stat wow fadeInUp" data-wow-delay=".2s">
+						<span class="card__value">13</span>
+						<span class="card__label">Equipment Lines</span>
+					</div>
+					<div class="card card--stat wow fadeInUp" data-wow-delay=".3s">
+						<span class="card__value">2-Yr</span>
+						<span class="card__label">Warranty Coverage</span>
+					</div>
+					<div class="card card--stat wow fadeInUp" data-wow-delay=".4s">
+						<span class="card__value">6</span>
+						<span class="card__label">Support Services</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- ================= ABOUT STRIP — "Who are they, specifically?" (extracted from About page content) ================= -->
 		<section class="section section--light">
 			<div class="container">
@@ -273,7 +321,7 @@
 						<a class="btn btn--outline btn--md" href="/about" style="margin-top: var(--space-6);">Our Story <i class="fas fa-arrow-right"></i></a>
 					</div>
 					<div class="split__media">
-						<img src="burgunton/product-2.jpeg" alt="Burgenton concrete pump, studio view" loading="lazy" />
+						<picture><source srcset="assets/img/products/concrete-pump-2.webp" type="image/webp" /><img src="assets/img/products/concrete-pump-2.jpg" alt="Burgenton concrete pump, studio view" loading="lazy" width="1000" height="667" /></picture>
 					</div>
 				</div>
 			</div>
@@ -295,7 +343,7 @@
 				<div class="grid grid--3up">
 					<article class="card wow fadeInUp" data-wow-delay=".1s">
 						<div class="card__media">
-							<img src="burgunton/product-1.jpeg" alt="Burgenton trailer-mounted concrete pump" loading="lazy" />
+							<picture><source srcset="assets/img/products/concrete-pump-1.webp" type="image/webp" /><img src="assets/img/products/concrete-pump-1.jpg" alt="Burgenton trailer-mounted concrete pump" loading="lazy" width="1000" height="667" /></picture>
 						</div>
 						<div class="card__body">
 							<span class="card__eyebrow">Construction Equipment</span>
@@ -309,7 +357,7 @@
 
 					<article class="card wow fadeInUp" data-wow-delay=".2s">
 						<div class="card__media">
-							<img src="burgunton/product-3.jpeg" alt="Burgenton electric forklift" loading="lazy" />
+							<picture><source srcset="assets/img/products/electric-forklift-1.webp" type="image/webp" /><img src="assets/img/products/electric-forklift-1.jpg" alt="Burgenton electric forklift" loading="lazy" width="1000" height="955" /></picture>
 						</div>
 						<div class="card__body">
 							<span class="card__eyebrow">Construction Equipment</span>
@@ -323,7 +371,7 @@
 
 					<article class="card wow fadeInUp" data-wow-delay=".3s">
 						<div class="card__media">
-							<img src="burgunton/product-4.jpeg" alt="Burgenton electric forklift, front view with raised forks" loading="lazy" />
+							<picture><source srcset="assets/img/products/electric-forklift-2.webp" type="image/webp" /><img src="assets/img/products/electric-forklift-2.jpg" alt="Burgenton electric forklift, front view with raised forks" loading="lazy" width="1000" height="979" /></picture>
 						</div>
 						<div class="card__body">
 							<span class="card__eyebrow">Construction Equipment</span>
@@ -366,7 +414,7 @@
 						<a class="btn btn--outline btn--md" href="/solutions/construction">Explore Construction Equipment <i class="fas fa-arrow-right"></i></a>
 					</div>
 					<div class="split__media">
-						<img src="burgunton/product-1.jpeg" alt="Burgenton concrete pump on a construction site" loading="lazy" />
+						<picture><source srcset="assets/img/products/concrete-pump-1.webp" type="image/webp" /><img src="assets/img/products/concrete-pump-1.jpg" alt="Burgenton concrete pump on a construction site" loading="lazy" width="1000" height="667" /></picture>
 					</div>
 				</div>
 			</div>
@@ -403,8 +451,8 @@
 
 		<!-- ================= PRODUCT DEMONSTRATION VIDEO (honestly captioned — factory demo, not an African site) ================= -->
 		<section class="video-band">
-			<video autoplay muted loop playsinline aria-label="Burgenton self-loading concrete mixer demonstration">
-				<source src="burgunton/video-2.mp4" type="video/mp4" />
+			<video data-lazy data-autoplay muted loop playsinline preload="none" aria-label="Burgenton self-loading concrete mixer demonstration">
+				<source data-src="assets/video/self-loading-mixer-demo-2.mp4" type="video/mp4" />
 			</video>
 			<div class="container video-band__caption">
 				<p class="text-sm text-muted is-on-dark">Product demonstration: Burgenton Self-Loading Concrete Mixer &mdash; load, mix and discharge in one machine.</p>
@@ -427,42 +475,42 @@
 					<div class="pillar wow fadeInUp" data-wow-delay=".1s">
 						<div class="pillar__icon"><i class="fas fa-globe-africa"></i></div>
 						<div>
-							<h4 style="color:var(--text-on-dark)">Engineered for African Conditions</h4>
+							<h3 style="color:var(--text-on-dark)">Engineered for African Conditions</h3>
 							<p class="text-sm" style="color:var(--text-muted-on-dark)">Selected and configured to perform reliably in demanding, real-world operating environments.</p>
 						</div>
 					</div>
 					<div class="pillar wow fadeInUp" data-wow-delay=".2s">
 						<div class="pillar__icon"><i class="fas fa-cogs"></i></div>
 						<div>
-							<h4 style="color:var(--text-on-dark)">Genuine Spare Parts Support</h4>
+							<h3 style="color:var(--text-on-dark)">Genuine Spare Parts Support</h3>
 							<p class="text-sm" style="color:var(--text-muted-on-dark)">A commitment to parts availability that reduces downtime and protects equipment performance.</p>
 						</div>
 					</div>
 					<div class="pillar wow fadeInUp" data-wow-delay=".3s">
 						<div class="pillar__icon"><i class="fas fa-shield-alt"></i></div>
 						<div>
-							<h4 style="color:var(--text-on-dark)">Comprehensive Warranty Protection</h4>
+							<h3 style="color:var(--text-on-dark)">Comprehensive Warranty Protection</h3>
 							<p class="text-sm" style="color:var(--text-muted-on-dark)">Every eligible machine is backed by warranty coverage, giving confidence in your investment.</p>
 						</div>
 					</div>
 					<div class="pillar wow fadeInUp" data-wow-delay=".1s">
 						<div class="pillar__icon"><i class="fas fa-headset"></i></div>
 						<div>
-							<h4 style="color:var(--text-on-dark)">Technical Expertise</h4>
+							<h3 style="color:var(--text-on-dark)">Technical Expertise</h3>
 							<p class="text-sm" style="color:var(--text-muted-on-dark)">Specialists available for product selection, commissioning, troubleshooting and maintenance guidance.</p>
 						</div>
 					</div>
 					<div class="pillar wow fadeInUp" data-wow-delay=".2s">
 						<div class="pillar__icon"><i class="fas fa-graduation-cap"></i></div>
 						<div>
-							<h4 style="color:var(--text-on-dark)">Training &amp; Operator Support</h4>
+							<h3 style="color:var(--text-on-dark)">Training &amp; Operator Support</h3>
 							<p class="text-sm" style="color:var(--text-muted-on-dark)">Well-trained operators achieve better performance, improved safety, and lower operating costs.</p>
 						</div>
 					</div>
 					<div class="pillar wow fadeInUp" data-wow-delay=".3s">
 						<div class="pillar__icon"><i class="fas fa-handshake"></i></div>
 						<div>
-							<h4 style="color:var(--text-on-dark)">Long-Term Partnership</h4>
+							<h3 style="color:var(--text-on-dark)">Long-Term Partnership</h3>
 							<p class="text-sm" style="color:var(--text-muted-on-dark)">Our relationship doesn&rsquo;t end at delivery &mdash; we support customers through the entire equipment lifecycle.</p>
 						</div>
 					</div>
@@ -474,7 +522,9 @@
 			</div>
 		</section>
 
-		<!-- ================= CUSTOMER SUCCESS STORIES — "Proof" (PDF's own sample layout, not fabricated named case studies) ================= -->
+		<!-- ================= CUSTOMER SUCCESS STORIES — "Proof" (PDF's own sample layout; presented as illustrative
+		     outcome examples rather than implied-verbatim customer quotes, since no named/attributed testimonial
+		     exists yet — unattributed quote-styled testimonials are a known credibility red flag) ================= -->
 		<section class="section section--tint">
 			<div class="container">
 				<div class="section__header">
@@ -487,14 +537,23 @@
 					</p>
 				</div>
 
+				<p class="text-sm text-muted" style="text-align:center; max-width:600px; margin:0 auto var(--space-8);">
+					<i class="fas fa-info-circle" aria-hidden="true"></i> Illustrative outcomes based on typical
+					engagements &mdash; named, published case studies are in progress.
+				</p>
+
 				<div class="grid grid--2up">
 					<div class="story-card wow fadeInUp" data-wow-delay=".1s">
-						<p class="story-card__quote">&ldquo;Reduced concrete production costs while improving project delivery timelines.&rdquo;</p>
-						<div class="story-card__meta"><i class="fas fa-hard-hat" aria-hidden="true"></i> Construction Contractor &middot; Self-Loading Concrete Mixers</div>
+						<div class="story-card__meta" style="margin-bottom: var(--space-4);"><i class="fas fa-hard-hat" aria-hidden="true"></i> Construction Contractor</div>
+						<p class="text-sm"><strong>Challenge:</strong> Rising concrete production costs and tight project delivery timelines.</p>
+						<p class="text-sm" style="margin-top: var(--space-2);"><strong>Solution:</strong> Burgenton Self-Loading Concrete Mixers deployed on-site.</p>
+						<p class="text-sm" style="margin-top: var(--space-2); color: var(--color-accent-600); font-weight:600;"><strong>Result:</strong> Reduced concrete production costs while improving project delivery timelines.</p>
 					</div>
 					<div class="story-card wow fadeInUp" data-wow-delay=".2s">
-						<p class="story-card__quote">&ldquo;Expanded production capacity and improved processing efficiency.&rdquo;</p>
-						<div class="story-card__meta"><i class="fas fa-seedling" aria-hidden="true"></i> Agro-Processor &middot; Agro-Processing Equipment</div>
+						<div class="story-card__meta" style="margin-bottom: var(--space-4);"><i class="fas fa-seedling" aria-hidden="true"></i> Agro-Processor</div>
+						<p class="text-sm"><strong>Challenge:</strong> Limited production capacity and processing efficiency.</p>
+						<p class="text-sm" style="margin-top: var(--space-2);"><strong>Solution:</strong> Burgenton agro-processing equipment deployed at the facility.</p>
+						<p class="text-sm" style="margin-top: var(--space-2); color: var(--color-accent-600); font-weight:600;"><strong>Result:</strong> Expanded production capacity and improved processing efficiency.</p>
 					</div>
 				</div>
 
@@ -533,6 +592,90 @@
 			</div>
 		</section>
 
+		<!-- ================= HOW WE WORK WITH YOU — process transparency (built from the site's own real CTAs/support facts, not new claims) ================= -->
+		<section class="section section--tint">
+			<div class="container">
+				<div class="section__header">
+					<span class="text-eyebrow">Process Transparency</span>
+					<h2>How We Work With You</h2>
+				</div>
+				<div class="process-steps">
+					<div class="process-step wow fadeInUp" data-wow-delay=".1s">
+						<div class="process-step__number">01</div>
+						<div class="process-step__label">Enquire &mdash; tell us about your project or processing needs</div>
+					</div>
+					<div class="process-step wow fadeInUp" data-wow-delay=".2s">
+						<div class="process-step__number">02</div>
+						<div class="process-step__label">Consult &mdash; a specialist reviews your requirements and recommends equipment</div>
+					</div>
+					<div class="process-step wow fadeInUp" data-wow-delay=".3s">
+						<div class="process-step__number">03</div>
+						<div class="process-step__label">Quote &amp; Delivery &mdash; receive your quote and equipment delivery</div>
+					</div>
+					<div class="process-step wow fadeInUp" data-wow-delay=".4s">
+						<div class="process-step__number">04</div>
+						<div class="process-step__label">Ongoing Support &mdash; warranty, genuine parts and technical support follow every machine</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ================= FAQ — pre-empts trust objections with answers grounded in real site content ================= -->
+		<section class="section section--light">
+			<div class="container">
+				<div class="section__header">
+					<span class="text-eyebrow">Frequently Asked Questions</span>
+					<h2>Common Questions About Burgenton</h2>
+				</div>
+				<div style="max-width:760px; margin:0 auto;">
+					<div class="faq">
+						<div class="faq-item">
+							<button class="faq-item__question" type="button">
+								<span>What standards does Burgenton equipment meet?</span>
+								<span class="faq-item__icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
+							</button>
+							<div class="faq-item__answer"><div class="faq-item__answer-inner"><p>Every Burgenton product is selected, tested, and supported according to strict standards designed to ensure reliability, durability, and performance &mdash; backed by manufacturer warranty coverage on every eligible machine.</p></div></div>
+						</div>
+						<div class="faq-item">
+							<button class="faq-item__question" type="button">
+								<span>What does the 2-year warranty cover?</span>
+								<span class="faq-item__icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
+							</button>
+							<div class="faq-item__answer"><div class="faq-item__answer-inner"><p>Every eligible Burgenton machine is backed by warranty coverage that protects against manufacturing defects, giving you confidence in your investment and access to reliable customer support. See our <a href="/support/warranty" style="color:var(--color-accent-600); text-decoration:underline;">Warranty Program</a> page for details.</p></div></div>
+						</div>
+						<div class="faq-item">
+							<button class="faq-item__question" type="button">
+								<span>Do you supply genuine spare parts?</span>
+								<span class="faq-item__icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
+							</button>
+							<div class="faq-item__answer"><div class="faq-item__answer-inner"><p>Yes. Burgenton maintains a commitment to genuine spare parts availability for every equipment line we supply, helping reduce downtime and protect performance throughout the equipment lifecycle.</p></div></div>
+						</div>
+						<div class="faq-item">
+							<button class="faq-item__question" type="button">
+								<span>Where is Burgenton based, and who do you serve?</span>
+								<span class="faq-item__icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
+							</button>
+							<div class="faq-item__answer"><div class="faq-item__answer-inner"><p>Burgenton Equipment is based in Benin City, Edo State, Nigeria, and is building a network of dealers and distributors to serve construction and agro-processing businesses across Africa.</p></div></div>
+						</div>
+						<div class="faq-item">
+							<button class="faq-item__question" type="button">
+								<span>What happens after I purchase equipment?</span>
+								<span class="faq-item__icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
+							</button>
+							<div class="faq-item__answer"><div class="faq-item__answer-inner"><p>Support continues throughout the equipment lifecycle &mdash; warranty protection, genuine spare parts, technical assistance, operator training, maintenance guidance, and product documentation. Visit our <a href="/support" style="color:var(--color-accent-600); text-decoration:underline;">Support</a> page for the full picture.</p></div></div>
+						</div>
+						<div class="faq-item">
+							<button class="faq-item__question" type="button">
+								<span>How do I become a Burgenton dealer or distributor?</span>
+								<span class="faq-item__icon"><i class="fas fa-plus" aria-hidden="true"></i></span>
+							</button>
+							<div class="faq-item__answer"><div class="faq-item__answer-inner"><p>We are actively expanding our dealer, distributor, and service partner network across Africa. Visit our <a href="/partners" style="color:var(--color-accent-600); text-decoration:underline;">Partners</a> page to review the opportunities and apply.</p></div></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- ================= FINAL CTA — "How can someone contact them?" ================= -->
 		<section class="section section--accent">
 			<div class="container" style="text-align:center;">
@@ -547,8 +690,8 @@
 					<a class="btn btn--outline-inverse btn--lg" href="/contact">Contact Us</a>
 				</div>
 				<div style="display:flex; gap: var(--space-6); justify-content:center; flex-wrap:wrap; margin-top: var(--space-8); font-size: var(--text-body-sm);">
-					<a href="tel:+2340000000000" style="color:var(--color-primary-0)"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
-					<a href="https://wa.me/2340000000000" style="color:var(--color-primary-0)"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+					<a href="/contact#message-form" style="color:var(--color-primary-0)"><i class="fas fa-phone-alt" aria-hidden="true"></i> Request a Callback</a>
+					<a href="/contact#message-form" style="color:var(--color-primary-0)"><i class="fab fa-whatsapp" aria-hidden="true"></i> Message Us</a>
 					<a href="mailto:info@burgenton.com" style="color:var(--color-primary-0)"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
 				</div>
 			</div>
@@ -568,8 +711,8 @@
 						lifecycle support &mdash; engineered for Africa, built to perform.
 					</p>
 					<div class="footer-contact">
-						<a href="tel:+2340000000000"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
-						<a href="https://wa.me/2340000000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+						<a href="/contact#message-form"><i class="fas fa-phone-alt" aria-hidden="true"></i> Request a Callback</a>
+						<a href="/contact#message-form"><i class="fab fa-whatsapp" aria-hidden="true"></i> Message Us</a>
 						<a href="mailto:info@burgenton.com"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
 						<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Benin City, Edo State, Nigeria</span>
 					</div>
@@ -634,12 +777,15 @@
 		<i class="fas fa-angle-up" aria-hidden="true"></i>
 	</button>
 
+	<div class="mobile-cta-bar">
+		<a class="btn-icon" href="/contact#message-form" aria-label="Contact Burgenton"><i class="fas fa-phone-alt" aria-hidden="true"></i></a>
+		<a class="btn btn--primary btn--md" href="/contact#quote">Request a Quote</a>
+	</div>
+
 	<script>
 		document.getElementById('footer-year').textContent = new Date().getFullYear();
 	</script>
-
-	<script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
-	<script src="assets/js/wow.min.js"></script>
 	<script src="assets/js/burgenton.js"></script>
+	<script src="assets/js/accordion.js"></script>
 </body>
 </html>

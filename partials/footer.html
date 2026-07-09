@@ -1,0 +1,92 @@
+<!--
+  BURGENTON — REUSABLE FOOTER PARTIAL
+
+  Canonical source for the site footer (4-column structure per the
+  approved blueprint: Company / Products / Resources / Partners).
+  Copy verbatim into every page until a templating/include system is
+  adopted (see /docs/template-audit.md, Phase 0 open question).
+
+  Styles: assets/css/burgenton.css §10 FOOTER
+-->
+
+<footer class="site-footer">
+	<div class="container">
+		<div class="footer-main">
+			<div class="footer-widget">
+				<a class="footer-logo" href="/">
+					<img src="assets/img/logo/burgenton-wordmark.png" alt="Burgenton Equipment" width="140" height="28" />
+				</a>
+				<p class="text-sm" style="max-width:34ch; margin-bottom: var(--space-5);">
+					Reliable construction and agro-processing equipment, genuine parts, and
+					lifecycle support &mdash; engineered for Africa, built to perform.
+				</p>
+				<div class="footer-contact">
+					<a href="tel:+2340000000000"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
+					<a href="https://wa.me/2340000000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+					<a href="mailto:info@burgenton.com"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
+					<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Benin City, Edo State, Nigeria</span>
+				</div>
+				<div class="footer-social">
+					<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+					<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+					<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+				</div>
+			</div>
+
+			<div class="footer-widget">
+				<h4 class="footer-widget__title">Products</h4>
+				<nav class="footer-links" aria-label="Products">
+					<a href="/products/construction">Construction Equipment</a>
+					<a href="/products/agro-processing">Agro-Processing Equipment</a>
+					<a href="/products/spare-parts">Spare Parts</a>
+					<a href="/why-burgenton">Why Buy Burgenton</a>
+				</nav>
+			</div>
+
+			<div class="footer-widget">
+				<h4 class="footer-widget__title">Resources</h4>
+				<nav class="footer-links" aria-label="Resources">
+					<a href="/resources">Knowledge Centre</a>
+					<a href="/success-stories">Success Stories</a>
+					<a href="/support">Support</a>
+					<a href="/about">About Burgenton</a>
+				</nav>
+			</div>
+
+			<div class="footer-widget">
+				<h4 class="footer-widget__title">Partners</h4>
+				<nav class="footer-links" aria-label="Partners" style="margin-bottom: var(--space-5);">
+					<a href="/partners/dealers">Become a Dealer</a>
+					<a href="/partners/distributors">Regional Distributors</a>
+					<a href="/partners/service-partners">Service Partners</a>
+					<a href="/contact">Contact Us</a>
+				</nav>
+
+				<h4 class="footer-widget__title">Stay Informed</h4>
+				<form class="footer-newsletter" action="#" method="post">
+					<label class="sr-only" for="footer-newsletter-email">Email address</label>
+					<input class="form-control" type="email" id="footer-newsletter-email" name="email" placeholder="Your email" required />
+					<button class="btn btn--primary btn--md" type="submit">
+						<span class="sr-only">Subscribe</span>
+						<i class="fas fa-arrow-right" aria-hidden="true"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="footer-bottom">
+			<p>&copy; <span id="footer-year">2026</span> Burgenton Limited. All rights reserved.</p>
+			<nav aria-label="Legal">
+				<a href="/contact">Contact Us</a>
+			</nav>
+		</div>
+	</div>
+</footer>
+
+<button class="scroll-to-top" type="button" aria-label="Scroll to top">
+	<i class="fas fa-angle-up" aria-hidden="true"></i>
+</button>
+
+<script>
+	document.getElementById('footer-year').textContent = new Date().getFullYear();
+</script>

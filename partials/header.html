@@ -1,0 +1,155 @@
+<!--
+  BURGENTON — REUSABLE HEADER / NAVIGATION PARTIAL
+
+  This is the canonical source for the site header. There is no
+  build/include system yet (open question raised in
+  /docs/template-audit.md, Phase 0) — until one is adopted, copy this
+  block verbatim into every page immediately after <body>, starting
+  with the .skip-link.
+
+  Styles: assets/css/burgenton.css §09 NAVIGATION
+  Behavior: assets/js/burgenton.js
+
+  Nav hrefs use the real slugs from the approved sitemap even though
+  most of those pages don't exist yet (built out in later batches) —
+  this is deliberate so the nav doesn't need rewriting as pages land.
+-->
+
+<a class="skip-link" href="#main-content">Skip to main content</a>
+
+<header class="site-header" id="site-header">
+	<div class="header-utility">
+		<div class="container">
+			<div class="header-utility__row">
+				<div class="header-utility__links">
+					<span><i class="fas fa-clock" aria-hidden="true"></i> Mon&ndash;Fri: 8am&ndash;5pm, Sat: 9am&ndash;1pm</span>
+					<span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Benin City, Nigeria</span>
+				</div>
+				<div class="header-utility__links">
+					<a href="https://wa.me/2340000000000"><i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp</a>
+					<a href="tel:+2340000000000"><i class="fas fa-phone-alt" aria-hidden="true"></i> +234 XXX XXX XXXX</a>
+					<a href="mailto:info@burgenton.com"><i class="fas fa-envelope" aria-hidden="true"></i> info@burgenton.com</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="header-main">
+			<a class="header-logo" href="/">
+				<img src="assets/img/logo/burgenton-lockup.png" alt="Burgenton Equipment" width="160" height="82" />
+			</a>
+
+			<nav class="nav-primary" aria-label="Primary">
+				<div class="nav-primary__item">
+					<a class="nav-primary__link" href="/">Home</a>
+				</div>
+				<div class="nav-primary__item">
+					<a class="nav-primary__link" href="/about">About</a>
+				</div>
+				<div class="nav-primary__item">
+					<a class="nav-primary__link" href="/products/construction" aria-haspopup="true">
+						Products <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+					</a>
+					<div class="nav-dropdown nav-dropdown--mega">
+						<div>
+							<div class="card__eyebrow" style="margin-bottom:8px">Construction</div>
+							<a class="nav-dropdown__link" href="/products/construction">All Construction Equipment</a>
+							<a class="nav-dropdown__link" href="/products/construction/self-loading-concrete-mixers">Self-Loading Concrete Mixers</a>
+							<a class="nav-dropdown__link" href="/products/construction/concrete-batching-plants">Concrete Batching Plants</a>
+							<a class="nav-dropdown__link" href="/products/construction/concrete-pumps">Concrete Pumps</a>
+							<a class="nav-dropdown__link" href="/products/construction/block-making-machines">Block Making Machines</a>
+						</div>
+						<div>
+							<div class="card__eyebrow" style="margin-bottom:8px">Agro-Processing</div>
+							<a class="nav-dropdown__link" href="/products/agro-processing">All Agro-Processing Equipment</a>
+							<a class="nav-dropdown__link" href="/products/agro-processing/cocoa-processing-equipment">Cocoa Processing</a>
+							<a class="nav-dropdown__link" href="/products/agro-processing/cassava-processing-equipment">Cassava Processing</a>
+							<a class="nav-dropdown__link" href="/products/agro-processing/palm-oil-processing-equipment">Palm Oil Processing</a>
+							<a class="nav-dropdown__link" href="/products/agro-processing/cashew-processing-equipment">Cashew Processing</a>
+						</div>
+						<div>
+							<div class="card__eyebrow" style="margin-bottom:8px">More</div>
+							<a class="nav-dropdown__link" href="/products/spare-parts">Spare Parts</a>
+							<a class="nav-dropdown__link" href="/why-burgenton">Why Buy Burgenton</a>
+						</div>
+					</div>
+				</div>
+				<div class="nav-primary__item">
+					<a class="nav-primary__link" href="/solutions/construction" aria-haspopup="true">
+						Solutions <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+					</a>
+					<div class="nav-dropdown">
+						<a class="nav-dropdown__link" href="/solutions/construction">Construction Solutions</a>
+						<a class="nav-dropdown__link" href="/solutions/agricultural">Agricultural Solutions</a>
+					</div>
+				</div>
+				<div class="nav-primary__item">
+					<a class="nav-primary__link" href="/support" aria-haspopup="true">
+						Support <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+					</a>
+					<div class="nav-dropdown">
+						<a class="nav-dropdown__link" href="/support/warranty">Warranty Program</a>
+						<a class="nav-dropdown__link" href="/support/spare-parts">Spare Parts Support</a>
+						<a class="nav-dropdown__link" href="/support/technical-assistance">Technical Assistance</a>
+						<a class="nav-dropdown__link" href="/support/training">Operator Training</a>
+						<a class="nav-dropdown__link" href="/support/maintenance">Maintenance Services</a>
+						<a class="nav-dropdown__link" href="/support/documentation">Product Documentation</a>
+					</div>
+				</div>
+				<div class="nav-primary__item">
+					<a class="nav-primary__link" href="/partners" aria-haspopup="true">
+						Partners <i class="fas fa-chevron-down" aria-hidden="true" style="font-size:.6em"></i>
+					</a>
+					<div class="nav-dropdown">
+						<a class="nav-dropdown__link" href="/partners/dealers">Become a Dealer</a>
+						<a class="nav-dropdown__link" href="/partners/distributors">Regional Distributors</a>
+						<a class="nav-dropdown__link" href="/partners/service-partners">Service Partners</a>
+					</div>
+				</div>
+				<div class="nav-primary__item">
+					<a class="nav-primary__link" href="/contact">Contact</a>
+				</div>
+			</nav>
+
+			<div class="header-actions">
+				<a class="btn-icon is-on-dark" href="tel:+2340000000000" aria-label="Call Burgenton">
+					<i class="fas fa-phone-alt" aria-hidden="true"></i>
+				</a>
+				<a class="btn btn--primary btn--md" href="/contact#quote">
+					Request a Quote <i class="fas fa-arrow-right" aria-hidden="true"></i>
+				</a>
+				<button class="nav-toggle btn-icon is-on-dark" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+					<i class="fas fa-bars" aria-hidden="true"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="header-spacer"></div>
+
+<div class="mobile-nav-overlay"></div>
+<nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+	<div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: var(--space-6);">
+		<img src="assets/img/logo/burgenton-lockup.png" alt="Burgenton Equipment" width="120" height="62" />
+		<button class="mobile-nav__close btn-icon is-on-dark" type="button" aria-label="Close menu">
+			<i class="fas fa-times" aria-hidden="true"></i>
+		</button>
+	</div>
+	<a class="mobile-nav__link" href="/">Home</a>
+	<a class="mobile-nav__link" href="/about">About</a>
+	<a class="mobile-nav__link" href="/products/construction">Products</a>
+	<a class="mobile-nav__link" href="/solutions/construction">Solutions</a>
+	<a class="mobile-nav__link" href="/support">Support</a>
+	<a class="mobile-nav__link" href="/partners">Partners</a>
+	<a class="mobile-nav__link" href="/contact">Contact</a>
+	<div style="margin-top: var(--space-6);">
+		<a class="btn btn--primary btn--md" style="width:100%" href="/contact#quote">Request a Quote</a>
+	</div>
+	<div class="mobile-nav__social">
+		<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+		<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+		<a class="btn-icon is-on-dark" href="#" aria-label="Burgenton on Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+	</div>
+</nav>

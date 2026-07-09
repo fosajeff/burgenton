@@ -71,7 +71,7 @@
 	--font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
 
 	/* ---- Typography: fluid scale (375px -> 1440px viewport) ---- */
-	--text-display: clamp(2.5rem, calc(1.7077rem + 3.3803vw), 4.75rem);
+	--text-display: clamp(2.75rem, calc(1.7817rem + 4.1315vw), 5.5rem); /* bumped from 4.75rem max for a bolder flagship-hero moment */
 	--text-h1: clamp(2rem, calc(1.4718rem + 2.2535vw), 3.5rem);
 	--text-h2: clamp(1.75rem, calc(1.4419rem + 1.3146vw), 2.625rem);
 	--text-h3: clamp(1.375rem, calc(1.1989rem + 0.7512vw), 1.875rem);
@@ -290,6 +290,23 @@ textarea:focus-visible,
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border: 0;
+}
+
+
+/* ---- Scroll-reveal (replaces WOW.js + animate.css; driven by
+   assets/js/burgenton.js initScrollReveal). Same `wow fadeInUp` /
+   `data-wow-delay` markup as before; only the engine changed. The global
+   prefers-reduced-motion override above (transition-duration: 0.01ms)
+   already applies to this transition, so it's reduced-motion-safe. ---- */
+.wow {
+	opacity: 0;
+	transform: translateY(24px);
+	transition: opacity var(--duration-entrance) var(--ease-out), transform var(--duration-entrance) var(--ease-out);
+}
+
+.wow.animated {
+	opacity: 1;
+	transform: translateY(0);
 }
 
 
@@ -889,6 +906,20 @@ textarea.form-control {
 	to { transform: translateY(0); }
 }
 
+/* Slow Ken Burns drift for real hero/product photography (never applied
+   to icon placeholders) — a second, distinct motion pattern from the
+   fade-up scroll-reveal, so the site isn't running one animation idea
+   everywhere. Neutralized automatically by the prefers-reduced-motion
+   override in §02 (animation-duration: 0.01ms !important). */
+@keyframes kenburns {
+	from { transform: scale(1) translate3d(0, 0, 0); }
+	to { transform: scale(1.08) translate3d(-1%, -1%, 0); }
+}
+
+.has-kenburns {
+	animation: kenburns 24s ease-in-out infinite alternate;
+}
+
 /* Spacer element toggled active when the header goes fixed, so content
    doesn't jump — pair with <div class="header-spacer"></div> right after
    the header in markup. */
@@ -1291,4 +1322,179 @@ textarea.form-control {
 
 .scroll-to-top:hover {
 	background-color: var(--color-accent-700);
+}
+
+
+/* -------------------------------------------------------------------------
+   12. TAGS (applications / configuration chips)
+   Promoted from index.html's page-scoped styles so Product pages (and any
+   future page) can reuse it without redeclaring it — see design-system.md
+   §8 "Card grid" / §12 industry checkboxes for the same visual language.
+   ---------------------------------------------------------------------- */
+.tag-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-2);
+}
+
+.tag {
+	font-size: var(--text-body-sm);
+	font-weight: 600;
+	padding: var(--space-1) var(--space-3);
+	border-radius: var(--radius-full);
+	border: 1.5px solid var(--border-default);
+	color: var(--text-body);
+}
+
+.is-on-dark .tag,
+.tag.is-on-dark {
+	border-color: rgba(255, 255, 255, 0.2);
+	color: var(--text-on-dark);
+}
+
+.tag--accent {
+	border-color: var(--color-accent-600);
+	color: var(--color-accent-600);
+}
+
+
+/* -------------------------------------------------------------------------
+   13. BREADCRUMB
+   ---------------------------------------------------------------------- */
+.breadcrumb {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-2);
+	font-size: var(--text-body-sm);
+	color: var(--text-muted-on-dark);
+}
+
+.breadcrumb a {
+	color: var(--text-muted-on-dark);
+}
+
+.breadcrumb a:hover {
+	color: var(--color-primary-0);
+}
+
+.breadcrumb__sep {
+	opacity: 0.5;
+}
+
+.breadcrumb__current {
+	color: var(--text-on-dark);
+	font-weight: 600;
+}
+
+
+/* -------------------------------------------------------------------------
+   14. PILLAR (icon + text block — Why Buy Burgenton grid, Core Values,
+   Quality Principles). Promoted from index.html's page-scoped styles so
+   the About page can reuse it without redeclaring it.
+   ---------------------------------------------------------------------- */
+.pillar {
+	display: flex;
+	gap: var(--space-4);
+}
+
+.pillar__icon {
+	flex-shrink: 0;
+	width: 52px;
+	height: 52px;
+	border-radius: var(--radius-md);
+	background-color: var(--surface-dark-raised);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--color-accent-500);
+	font-size: 20px;
+}
+
+.pillar__icon.is-on-light {
+	background-color: var(--surface-tint);
+	color: var(--color-accent-600);
+}
+
+
+/* -------------------------------------------------------------------------
+   15. STORY CARD (illustrative outcome / case-study summary)
+   Promoted from index.html's page-scoped styles — it was never actually
+   defined in a shared stylesheet, so success-stories/index.html was
+   rendering these completely unstyled. Deliberately not quote-styled:
+   unattributed testimonials presented as verbatim speech are a known
+   credibility red flag, so this renders as a labelled outcome summary
+   (Challenge/Solution/Result) instead.
+   ---------------------------------------------------------------------- */
+.story-card {
+	background-color: var(--surface-page);
+	border-radius: var(--radius-md);
+	padding: var(--space-6);
+	box-shadow: var(--shadow-sm);
+}
+
+.story-card__meta {
+	display: flex;
+	align-items: center;
+	gap: var(--space-2);
+	font-size: var(--text-body-sm);
+	font-weight: 600;
+	color: var(--text-body);
+}
+
+.story-card__meta i {
+	color: var(--color-accent-600);
+}
+
+
+/* -------------------------------------------------------------------------
+   16. MOBILE STICKY CTA BAR
+   Fixes a confirmed CRO/mobile-UX bug: the header's "Request a Quote"
+   button is display:none below 768px (see §09 .header-actions .btn),
+   which meant mobile visitors — the majority of traffic in this market —
+   had no primary CTA visible anywhere except by opening the hamburger
+   menu or scrolling to a page-end band. This bar is the mobile
+   equivalent of that header CTA, shown only below 768px.
+   ---------------------------------------------------------------------- */
+.mobile-cta-bar {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: var(--z-sticky-header);
+	display: flex;
+	gap: var(--space-3);
+	padding: var(--space-3) var(--space-4);
+	padding-bottom: max(var(--space-3), env(safe-area-inset-bottom));
+	background-color: var(--surface-page);
+	border-top: 1px solid var(--border-default);
+	box-shadow: var(--shadow-lg);
+}
+
+.mobile-cta-bar .btn {
+	flex: 1;
+}
+
+.mobile-cta-bar .btn-icon {
+	flex: 0 0 auto;
+	background-color: var(--surface-tint);
+	color: var(--text-body);
+}
+
+@media (min-width: 768px) {
+	.mobile-cta-bar {
+		display: none;
+	}
+}
+
+/* Keeps the floating scroll-to-top button from overlapping the bar, and
+   stops the bar itself from covering the last bit of footer content. */
+@media (max-width: 767.98px) {
+	.scroll-to-top {
+		bottom: calc(var(--space-5) + 64px);
+	}
+
+	body {
+		padding-bottom: 64px;
+	}
 }

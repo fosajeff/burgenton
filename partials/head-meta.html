@@ -1,0 +1,64 @@
+<!--
+  BURGENTON — REUSABLE <head> / SEO DEFAULTS PARTIAL
+
+  Canonical <head> block. Copy into every page and fill in the
+  {{PLACEHOLDER}} values per page — do not ship a page with a
+  placeholder still in it.
+
+  {{PAGE_TITLE}}        e.g. "Self-Loading Concrete Mixers"
+  {{PAGE_DESCRIPTION}}  150-160 characters, unique per page
+  {{CANONICAL_URL}}     absolute URL, e.g. https://www.burgenton.com/products/construction
+  {{OG_IMAGE}}          absolute URL to a 1200x630 share image — falls back to the
+                         lockup logo below until real per-page/OG artwork exists
+  {{ROBOTS}}            defaults to "index, follow" — override per page only when needed
+                         (e.g. "noindex, nofollow" on a thank-you/confirmation page)
+
+  Domain used below (www.burgenton.com) is a placeholder pending the
+  real production domain — update sitewide before launch.
+-->
+
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>{{PAGE_TITLE}} | Burgenton Equipment</title>
+<meta name="description" content="{{PAGE_DESCRIPTION}}" />
+<meta name="robots" content="{{ROBOTS|default:index, follow}}" />
+<link rel="canonical" href="{{CANONICAL_URL}}" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Burgenton Equipment" />
+<meta property="og:title" content="{{PAGE_TITLE}} | Burgenton Equipment" />
+<meta property="og:description" content="{{PAGE_DESCRIPTION}}" />
+<meta property="og:url" content="{{CANONICAL_URL}}" />
+<meta property="og:image" content="{{OG_IMAGE|default:https://www.burgenton.com/assets/img/logo/burgenton-lockup.png}}" />
+<meta property="og:locale" content="en_NG" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{PAGE_TITLE}} | Burgenton Equipment" />
+<meta name="twitter:description" content="{{PAGE_DESCRIPTION}}" />
+<meta name="twitter:image" content="{{OG_IMAGE|default:https://www.burgenton.com/assets/img/logo/burgenton-lockup.png}}" />
+
+<!-- Theme color (mobile browser chrome) -->
+<meta name="theme-color" content="#040404" />
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
+
+<!-- Fonts: preconnect first for performance, then the stylesheet -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap"
+/>
+
+<!-- CSS: Bootstrap grid -> FontAwesome (single load, not duplicated) -> Burgenton foundation -->
+<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+<link rel="stylesheet" href="assets/fontawsome/css/all.min.css" />
+<link rel="stylesheet" href="assets/css/burgenton.css" />

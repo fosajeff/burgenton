@@ -1,0 +1,184 @@
+/* =========================================================================
+   BURGENTON EQUIPMENT — SERVICE (SUPPORT) PAGE COMPONENTS
+   =========================================================================
+   Reusable components specific to Support hub / Support service pages.
+   Loaded in addition to assets/css/burgenton.css (and, where a page also
+   needs product-style modules, products.css) — never instead of them.
+
+   Used by: support/*
+   ========================================================================= */
+
+/* ---- Process diagram (numbered step flow — the "Process" section) ---- */
+.process-steps {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-6);
+}
+
+@media (min-width: 768px) {
+	.process-steps {
+		flex-direction: row;
+		align-items: flex-start;
+		gap: 0;
+	}
+}
+
+.process-step {
+	position: relative;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--space-3);
+	padding-right: var(--space-5);
+}
+
+@media (min-width: 768px) {
+	.process-step {
+		align-items: center;
+		text-align: center;
+	}
+
+	/* connecting line between step numbers on desktop */
+	.process-step:not(:last-child)::after {
+		content: '';
+		position: absolute;
+		top: 22px;
+		left: calc(50% + 32px);
+		right: calc(-50% + 32px);
+		height: 2px;
+		background-color: var(--color-neutral-200);
+	}
+
+	.section--dark .process-step:not(:last-child)::after {
+		background-color: rgba(255, 255, 255, 0.15);
+	}
+}
+
+.process-step__number {
+	flex-shrink: 0;
+	width: 44px;
+	height: 44px;
+	border-radius: var(--radius-full);
+	background-color: var(--color-accent-600);
+	color: var(--color-primary-0);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: var(--font-mono);
+	font-weight: 500;
+	font-size: var(--text-body-sm);
+	position: relative;
+	z-index: 1;
+}
+
+.process-step__label {
+	font-weight: 600;
+	font-size: var(--text-body-sm);
+}
+
+/* ---- FAQ accordion (assets/js/accordion.js) ---- */
+.faq {
+	border-top: 1px solid var(--border-default);
+}
+
+.section--dark .faq {
+	border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+.faq-item {
+	border-bottom: 1px solid var(--border-default);
+}
+
+.section--dark .faq-item {
+	border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+.faq-item__question {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: var(--space-4);
+	padding: var(--space-5) 0;
+	background: none;
+	border: none;
+	text-align: left;
+	font-family: var(--font-heading);
+	font-size: var(--text-body-lg);
+	font-weight: 700;
+	color: inherit;
+	cursor: pointer;
+}
+
+.faq-item__icon {
+	flex-shrink: 0;
+	width: 28px;
+	height: 28px;
+	border-radius: var(--radius-full);
+	border: 1.5px solid var(--color-neutral-200);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: transform var(--duration-state) ease, background-color var(--duration-state) ease;
+}
+
+.section--dark .faq-item__icon {
+	border-color: rgba(255, 255, 255, 0.25);
+}
+
+.faq-item.is-open .faq-item__icon {
+	background-color: var(--color-accent-600);
+	border-color: var(--color-accent-600);
+	color: var(--color-primary-0);
+	transform: rotate(45deg);
+}
+
+.faq-item__answer {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height var(--duration-reveal) var(--ease-out);
+}
+
+.faq-item__answer-inner {
+	padding-bottom: var(--space-5);
+	color: var(--text-muted);
+	max-width: 68ch;
+}
+
+.section--dark .faq-item__answer-inner {
+	color: var(--text-muted-on-dark);
+}
+
+/* ---- Industries served strip ---- */
+.industries-served {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--space-5);
+}
+
+.industries-served__item {
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	padding: var(--space-3) var(--space-5);
+	border-radius: var(--radius-full);
+	border: 1.5px solid var(--border-default);
+	font-weight: 600;
+	font-size: var(--text-body-sm);
+}
+
+.section--dark .industries-served__item,
+.industries-served__item.is-on-dark {
+	border-color: rgba(255, 255, 255, 0.2);
+	color: var(--text-on-dark);
+}
+
+.industries-served__item i {
+	color: var(--color-accent-600);
+}
+
+.section--dark .industries-served__item i,
+.industries-served__item.is-on-dark i {
+	color: var(--color-accent-500);
+}
