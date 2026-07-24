@@ -8,27 +8,35 @@
    ========================================================================= */
 
 (function () {
-	'use strict';
+  "use strict";
 
-	function initGalleries() {
-		document.querySelectorAll('[data-gallery]').forEach(function (gallery) {
-			var mainImg = gallery.querySelector('.product-gallery__main img');
-			var thumbs = gallery.querySelectorAll('.product-gallery__thumb');
-			if (!mainImg || !thumbs.length) return;
+  function initGalleries() {
+    document.querySelectorAll("[data-gallery]").forEach(function (gallery) {
+      var mainImg = gallery.querySelector(".product-gallery__main img");
+      var mainSource = gallery.querySelector(".product-gallery__main source");
+      var thumbs = gallery.querySelectorAll(".product-gallery__thumb");
 
-			thumbs.forEach(function (thumb) {
-				thumb.addEventListener('click', function () {
-					var fullSrc = thumb.getAttribute('data-full');
-					var alt = thumb.getAttribute('data-alt');
-					if (!fullSrc) return;
-					mainImg.setAttribute('src', fullSrc);
-					if (alt) mainImg.setAttribute('alt', alt);
-					thumbs.forEach(function (t) { t.classList.remove('is-active'); });
-					thumb.classList.add('is-active');
-				});
-			});
-		});
-	}
+      if (!mainImg || !thumbs.length) return;
 
-	document.addEventListener('DOMContentLoaded', initGalleries);
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener("click", function () {
+          var fullSrc = thumb.getAttribute("data-full");
+          var alt = thumb.getAttribute("data-alt");
+          if (!fullSrc) return;
+          if (mainSource) {
+            var webpSrc = fullSrc.replace(".jpg", ".webp");
+            mainSource.setAttribute("srcset", webpSrc);
+          }
+          mainImg.setAttribute("src", fullSrc);
+          if (alt) mainImg.setAttribute("alt", alt);
+          thumbs.forEach(function (t) {
+            t.classList.remove("is-active");
+          });
+          thumb.classList.add("is-active");
+        });
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initGalleries);
 })();
