@@ -43,12 +43,37 @@
 
 	<style>
 		/* Home-page-only layout rules (not part of the reusable design system) */
-		.hero { position: relative; min-height: 640px; display: flex; align-items: flex-end; color: var(--color-primary-0); overflow: hidden; }
-		.hero__media { position: absolute; inset: 0; z-index: 0; }
-		.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; animation: kenburns 24s ease-in-out infinite alternate; }
-		.hero__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,4,4,0.25) 0%, rgba(4,4,4,0.55) 55%, rgba(4,4,4,0.88) 100%); z-index: 1; }
-		.hero__content { position: relative; z-index: 2; padding: var(--space-16) 0 var(--space-10); max-width: 680px; }
-		@media (max-width: 767.98px) { .hero { min-height: 560px; } .hero__content { padding: var(--space-12) 0 var(--space-8); } }
+		/* ---- Hero slider: showcases flagship equipment across multiple
+		   slides while the headline/subhead/CTA stay fixed (same content,
+		   same CTA hierarchy, only the background photo + a small per-slide
+		   label rotate). Crossfade via opacity, not transform, so it never
+		   fights the Ken Burns zoom already running on each slide's image. ---- */
+		.hero-slider { position: relative; min-height: 640px; display: flex; align-items: flex-end; color: var(--color-primary-0); overflow: hidden; }
+		.hero-slider__slide { position: absolute; inset: 0; z-index: 0; opacity: 0; transition: opacity 1.1s ease; }
+		.hero-slider__slide.is-active { opacity: 1; z-index: 1; }
+		.hero-slider__slide img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; animation: kenburns 24s ease-in-out infinite alternate; }
+		.hero-slider__scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(4,4,4,0.25) 0%, rgba(4,4,4,0.55) 55%, rgba(4,4,4,0.88) 100%); z-index: 2; }
+		.hero-slider__content { position: relative; z-index: 3; padding: var(--space-16) 0 var(--space-10); max-width: 680px; }
+		.hero-slider__eyebrow-tag { display: inline-block; font-size: var(--text-body-sm); font-weight: 600; color: var(--color-accent-500); margin-bottom: var(--space-2); transition: opacity .3s ease; }
+		@media (max-width: 767.98px) {
+			.hero-slider { min-height: 620px; }
+			/* Extra bottom padding reserves room for the absolutely-positioned
+			   controls bar so the (up to 3, stacked) CTA buttons never collide
+			   with the dots/pause row on short mobile viewports. */
+			.hero-slider__content { padding: var(--space-12) 0 calc(var(--space-8) + 56px); }
+		}
+
+		/* Manual navigation: dots + arrows + pause toggle (WCAG 2.2.2 —
+		   auto-rotating content that runs >5s needs a way to stop it). */
+		.hero-slider__controls { position: absolute; z-index: 4; left: 0; right: 0; bottom: var(--space-6); display: flex; align-items: center; justify-content: center; gap: var(--space-4); }
+		.hero-slider__dots { display: flex; gap: var(--space-2); }
+		.hero-slider__dot { width: 10px; height: 10px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.6); background: transparent; padding: 0; cursor: pointer; transition: background-color .2s ease, transform .2s ease; }
+		.hero-slider__dot.is-active { background-color: var(--color-accent-500); border-color: var(--color-accent-500); transform: scale(1.15); }
+		.hero-slider__arrow, .hero-slider__pause { width: 40px; height: 40px; border-radius: 50%; border: 1.5px solid rgba(255,255,255,0.4); background: rgba(4,4,4,0.35); color: #fff; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background-color .2s ease, border-color .2s ease; }
+		.hero-slider__arrow:hover, .hero-slider__pause:hover { background-color: var(--color-accent-600); border-color: var(--color-accent-600); }
+		.hero-slider__arrow--prev { position: absolute; left: var(--space-4); top: 50%; transform: translateY(-50%); z-index: 4; }
+		.hero-slider__arrow--next { position: absolute; right: var(--space-4); top: 50%; transform: translateY(-50%); z-index: 4; }
+		@media (max-width: 575.98px) { .hero-slider__arrow--prev, .hero-slider__arrow--next { display: none; } }
 		.trust-bar { background-color: var(--surface-dark); border-top: 1px solid rgba(255,255,255,0.08); }
 		.trust-bar__row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-3) var(--space-8); padding: var(--space-4) 0; }
 		.trust-bar__item { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-body-sm); font-weight: 600; color: var(--text-on-dark); white-space: nowrap; }
@@ -60,8 +85,12 @@
 		.split__media.is-flat i { font-size: 64px; color: var(--color-accent-500); opacity: .8; }
 		.tag-list { margin: var(--space-4) 0 var(--space-6); } /* .tag-list/.tag base rules now live in burgenton.css §12 */
 		.video-band { position: relative; background-color: var(--surface-dark); overflow: hidden; }
-		.video-band video { width: 100%; display: block; max-height: 560px; object-fit: cover; }
-		.video-band__caption { padding: var(--space-3) 0; text-align: center; }
+		.video-band__frame { position: relative; max-width: var(--container-max); margin: 0 auto; padding: var(--space-10) var(--space-5) 0; }
+		.video-band__media { position: relative; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-lg); }
+		.video-band video { width: 100%; display: block; max-height: 560px; object-fit: cover; background-color: var(--color-primary-900); }
+		.video-band__play-badge { position: absolute; top: var(--space-5); left: var(--space-5); z-index: 2; display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-2) var(--space-4); background-color: rgba(4,4,4,0.55); backdrop-filter: blur(4px); border-radius: var(--radius-full); color: #fff; font-size: var(--text-body-sm); font-weight: 600; pointer-events: none; }
+		.video-band__play-badge i { color: var(--color-accent-500); }
+		.video-band__caption { padding: var(--space-4) var(--space-5) var(--space-10); text-align: center; }
 		/* .pillar and .story-card now live in burgenton.css §14/§15 — reused by About and Success Stories */
 	</style>
 
@@ -175,6 +204,7 @@
 							<a class="nav-dropdown__link" href="/support/training">Operator Training</a>
 							<a class="nav-dropdown__link" href="/support/maintenance">Maintenance Services</a>
 							<a class="nav-dropdown__link" href="/support/documentation">Product Documentation</a>
+						<a class="nav-dropdown__link" href="/resources">Knowledge Centre</a>
 						</div>
 					</div>
 					<div class="nav-primary__item">
@@ -236,18 +266,40 @@
 
 	<main id="main-content">
 
-		<!-- ================= HERO — "Who are they? What do they claim?" ================= -->
-		<section class="hero">
-			<div class="hero__media">
+		<!-- ================= HERO SLIDER — "Who are they? What do they claim?" =================
+		     4 slides showcase flagship equipment across both product lines; the headline,
+		     subhead and CTA row are IDENTICAL on every slide (same content, same CTA
+		     hierarchy) — only the background photo and the small equipment label change. ================= -->
+		<section class="hero-slider" id="hero-slider" aria-roledescription="carousel" aria-label="Featured Burgenton equipment">
+			<div class="hero-slider__slide is-active" data-slide="0">
 				<picture>
 					<source srcset="assets/img/products/self-loading-mixer-1.webp" type="image/webp" />
 					<img src="assets/img/products/self-loading-mixer-1.jpg" alt="Burgenton self-loading concrete mixers staged and ready for deployment" width="810" height="1080" loading="eager" fetchpriority="high" />
 				</picture>
 			</div>
-			<div class="hero__scrim"></div>
+			<div class="hero-slider__slide" data-slide="1">
+				<picture>
+					<source srcset="assets/img/products/backhoe-loader-1.webp" type="image/webp" />
+					<img src="assets/img/products/backhoe-loader-1.jpg" alt="Burgenton BL1000 4WD backhoe loader, side view with loader bucket and backhoe arm extended" width="1600" height="945" loading="lazy" />
+				</picture>
+			</div>
+			<div class="hero-slider__slide" data-slide="2">
+				<picture>
+					<source srcset="assets/img/products/concrete-pump-2.webp" type="image/webp" />
+					<img src="assets/img/products/concrete-pump-2.jpg" alt="Burgenton concrete pump with hopper raised, three-quarter view" width="1536" height="1024" loading="lazy" />
+				</picture>
+			</div>
+			<div class="hero-slider__slide" data-slide="3">
+				<picture>
+					<source srcset="assets/img/products/batching-plant-1.webp" type="image/webp" />
+					<img src="assets/img/products/batching-plant-1.jpg" alt="Burgenton mobile concrete batching plant" width="1537" height="1023" loading="lazy" />
+				</picture>
+			</div>
+			<div class="hero-slider__scrim"></div>
 			<div class="container">
-				<div class="hero__content">
-					<span class="text-eyebrow is-on-dark wow fadeInUp" data-wow-delay=".1s">Burgenton Equipment</span>
+				<div class="hero-slider__content">
+					<span class="hero-slider__eyebrow-tag" data-slide-label>Self-Loading Concrete Mixers</span>
+					<span class="text-eyebrow is-on-dark wow fadeInUp" data-wow-delay=".1s" style="display:block;">Burgenton Equipment</span>
 					<h1 class="text-display wow fadeInUp" data-wow-delay=".25s">Engineered for Africa. Built to Perform.</h1>
 					<p class="text-lead wow fadeInUp" data-wow-delay=".4s" style="color: var(--color-primary-0); opacity:.92; margin-top: var(--space-4);">
 						Burgenton Equipment delivers reliable construction and agro-processing equipment
@@ -255,9 +307,25 @@
 						supported by genuine spare parts, technical expertise, and dependable warranty coverage.
 					</p>
 					<div class="wow fadeInUp" data-wow-delay=".55s" style="display:flex; gap: var(--space-4); flex-wrap:wrap; margin-top: var(--space-6);">
-						<a class="btn btn--primary btn--lg" href="/products/construction">Explore Products <i class="fas fa-arrow-right"></i></a>
+						<a class="btn btn--primary btn--lg" href="/products/construction">Explore Construction Equipment <i class="fas fa-arrow-right"></i></a>
+						<a class="btn btn--secondary btn--lg" href="/products/agro-processing">Explore Agro-Processing Equipment <i class="fas fa-arrow-right"></i></a>
 						<a class="btn btn--outline-inverse btn--lg" href="/contact#quote">Request a Quote</a>
 					</div>
+				</div>
+			</div>
+
+			<button class="hero-slider__arrow hero-slider__arrow--prev" type="button" aria-label="Previous slide"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+			<button class="hero-slider__arrow hero-slider__arrow--next" type="button" aria-label="Next slide"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+
+			<div class="hero-slider__controls">
+				<button class="hero-slider__pause" type="button" aria-label="Pause slideshow" data-slide-pause>
+					<i class="fas fa-pause" aria-hidden="true"></i>
+				</button>
+				<div class="hero-slider__dots" role="tablist" aria-label="Slides">
+					<button class="hero-slider__dot is-active" type="button" role="tab" aria-selected="true" aria-label="Show slide 1: Self-Loading Concrete Mixers" data-slide-dot="0"></button>
+					<button class="hero-slider__dot" type="button" role="tab" aria-selected="false" aria-label="Show slide 2: Backhoe Loaders" data-slide-dot="1"></button>
+					<button class="hero-slider__dot" type="button" role="tab" aria-selected="false" aria-label="Show slide 3: Concrete Pumps" data-slide-dot="2"></button>
+					<button class="hero-slider__dot" type="button" role="tab" aria-selected="false" aria-label="Show slide 4: Concrete Batching Plants" data-slide-dot="3"></button>
 				</div>
 			</div>
 		</section>
@@ -451,9 +519,14 @@
 
 		<!-- ================= PRODUCT DEMONSTRATION VIDEO (honestly captioned — factory demo, not an African site) ================= -->
 		<section class="video-band">
-			<video data-lazy data-autoplay muted loop playsinline preload="none" aria-label="Burgenton self-loading concrete mixer demonstration">
-				<source data-src="assets/video/self-loading-mixer-demo-2.mp4" type="video/mp4" />
-			</video>
+			<div class="video-band__frame">
+				<div class="video-band__media">
+					<span class="video-band__play-badge"><i class="fas fa-play-circle" aria-hidden="true"></i> Product Demonstration</span>
+					<video data-lazy data-autoplay muted loop playsinline preload="none" poster="assets/img/products/self-loading-mixer-2.jpg" aria-label="Burgenton self-loading concrete mixer demonstration">
+						<source data-src="assets/video/self-loading-mixer-demo-2.mp4" type="video/mp4" />
+					</video>
+				</div>
+			</div>
 			<div class="container video-band__caption">
 				<p class="text-sm text-muted is-on-dark">Product demonstration: Burgenton Self-Loading Concrete Mixer &mdash; load, mix and discharge in one machine.</p>
 			</div>
@@ -676,6 +749,38 @@
 			</div>
 		</section>
 
+		<!-- ================= KNOWLEDGE CENTRE HIGHLIGHT — improves discoverability of /resources per client request ================= -->
+		<section class="section section--light">
+			<div class="container">
+				<div class="split">
+					<div>
+						<span class="text-eyebrow">Knowledge Centre</span>
+						<h2>Equipment Guides, Maintenance Resources &amp; Product Demonstrations</h2>
+						<p style="margin-top: var(--space-4);">
+							Explore equipment buying guides, maintenance resources, and our video library
+							of product demonstrations &mdash; built to help you make informed decisions
+							before you buy, and get more from your equipment after you do.
+						</p>
+						<a class="btn btn--outline btn--md" href="/resources" style="margin-top: var(--space-6);">Visit Knowledge Centre <i class="fas fa-arrow-right"></i></a>
+					</div>
+					<div class="grid" style="grid-template-columns: 1fr; gap: var(--space-4);">
+						<a href="/resources/equipment-guides" class="card" style="padding: var(--space-5); display:flex; align-items:center; gap: var(--space-4); color:inherit;">
+							<div class="pillar__icon is-on-light"><i class="fas fa-book" aria-hidden="true"></i></div>
+							<div><h4 style="font-size: var(--text-body);">Equipment Guides</h4><p class="text-sm text-muted">Compare models and select the right machine.</p></div>
+						</a>
+						<a href="/resources/maintenance-resources" class="card" style="padding: var(--space-5); display:flex; align-items:center; gap: var(--space-4); color:inherit;">
+							<div class="pillar__icon is-on-light"><i class="fas fa-tools" aria-hidden="true"></i></div>
+							<div><h4 style="font-size: var(--text-body);">Maintenance Resources</h4><p class="text-sm text-muted">Inspection checklists and service guidance.</p></div>
+						</a>
+						<a href="/resources/video-library" class="card" style="padding: var(--space-5); display:flex; align-items:center; gap: var(--space-4); color:inherit;">
+							<div class="pillar__icon is-on-light"><i class="fas fa-play-circle" aria-hidden="true"></i></div>
+							<div><h4 style="font-size: var(--text-body);">Video Library</h4><p class="text-sm text-muted">Product demonstrations and equipment walkthroughs.</p></div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		<!-- ================= FINAL CTA — "How can someone contact them?" ================= -->
 		<section class="section section--accent">
 			<div class="container" style="text-align:center;">
@@ -786,6 +891,7 @@
 		document.getElementById('footer-year').textContent = new Date().getFullYear();
 	</script>
 	<script src="assets/js/burgenton.js"></script>
+	<script src="assets/js/hero-slider.js"></script>
 	<script src="assets/js/accordion.js"></script>
 </body>
 </html>

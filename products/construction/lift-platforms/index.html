@@ -377,8 +377,21 @@
 
     <main id="main-content">
       <section class="product-hero">
-        <div class="product-hero__media is-placeholder">
-          <i class="fas fa-arrows-alt-v" aria-hidden="true"></i>
+        <div class="product-hero__media">
+          <picture>
+            <source
+              srcset="../../../assets/img/products/self-propelled-scissor-lift-1.webp"
+              type="image/webp"
+            />
+            <img
+              src="../../../assets/img/products/self-propelled-scissor-lift-1.jpg"
+              alt="Burgenton self-propelled hydraulic scissor lift"
+              loading="eager"
+              fetchpriority="high"
+              width="1000"
+              height="667"
+            />
+          </picture>
         </div>
         <div class="product-hero__scrim"></div>
         <div class="container">
@@ -449,150 +462,6 @@
               Platforms help businesses work smarter, safer, and more
               efficiently.
             </p>
-          </div>
-          <div class="wow fadeInUp" style="margin-top: 30px">
-            <div data-gallery>
-              <div class="product-gallery__main">
-                <picture
-                  ><source
-                    srcset="
-                      ../../../assets/img/products/crawler-track-lift-1.webp
-                    "
-                    type="image/webp" />
-                  <img
-                    src="../../../assets/img/products/crawler-track-lift-1.jpg"
-                    alt="Burgenton self-loading concrete mixers staged and ready for deployment"
-                    loading="lazy"
-                    width="810"
-                    height="1080"
-                /></picture>
-                <!-- <p class="product-gallery-main_caption">
-                  Product demonstration: Burgenton Self-Loading Concrete Mixer
-                  loading, mixing and discharging concrete.
-                </p> -->
-              </div>
-              <div class="product-gallery__thumbs">
-                <button
-                  class="product-gallery__thumb is-active"
-                  type="button"
-                  data-full="../../../assets/img/products/crawler-track-lift-1.jpg"
-                  data-alt="Burgenton trailer-mounted concrete pump, side view"
-                  aria-label="Show image 1"
-                >
-                  <img
-                    src="../../../assets/img/products/crawler-track-lift-1.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  /></button
-                ><button
-                  class="product-gallery__thumb"
-                  type="button"
-                  data-full="../../../assets/img/products/crawler-track-lift-2.jpg"
-                  data-alt="Burgenton concrete pump with hopper raised, three-quarter view"
-                  aria-label="Show image 2"
-                >
-                  <img
-                    src="../../../assets/img/products/crawler-track-lift-2.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  />
-                </button>
-                <button
-                  class="product-gallery__thumb"
-                  type="button"
-                  data-full="../../../assets/img/products/crawler-track-lift-3.jpg"
-                  data-alt="Burgenton concrete pump with hopper raised, three-quarter view"
-                  aria-label="Show image 2"
-                >
-                  <img
-                    src="../../../assets/img/products/crawler-track-lift-3.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  />
-                </button>
-                <button
-                  class="product-gallery__thumb"
-                  type="button"
-                  data-full="../../../assets/img/products/crawler-track-lift-4.jpg"
-                  data-alt="Burgenton concrete pump with hopper raised, three-quarter view"
-                  aria-label="Show image 2"
-                >
-                  <img
-                    src="../../../assets/img/products/crawler-track-lift-4.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  />
-                </button>
-                <button
-                  class="product-gallery__thumb"
-                  type="button"
-                  data-full="../../../assets/img/products/self-propelled-scissor-lift-1.jpg"
-                  data-alt="Burgenton concrete pump with hopper raised, three-quarter view"
-                  aria-label="Show image 2"
-                >
-                  <img
-                    src="../../../assets/img/products/self-propelled-scissor-lift-1.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  />
-                </button>
-                <button
-                  class="product-gallery__thumb"
-                  type="button"
-                  data-full="../../../assets/img/products/self-propelled-scissor-lift-2.jpg"
-                  data-alt="Burgenton concrete pump with hopper raised, three-quarter view"
-                  aria-label="Show image 2"
-                >
-                  <img
-                    src="../../../assets/img/products/self-propelled-scissor-lift-2.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  />
-                </button>
-                <button
-                  class="product-gallery__thumb"
-                  type="button"
-                  data-full="../../../assets/img/products/boom-lift-diagram-explanation-1.jpg"
-                  data-alt="Burgenton concrete pump with hopper raised, three-quarter view"
-                  aria-label="Show image 2"
-                >
-                  <img
-                    src="../../../assets/img/products/boom-lift-diagram-explanation-1.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  />
-                </button>
-                <button
-                  class="product-gallery__thumb"
-                  type="button"
-                  data-full="../../../assets/img/products/boom-lift-diagram-explanation-2.jpg"
-                  data-alt="Burgenton concrete pump with hopper raised, three-quarter view"
-                  aria-label="Show image 2"
-                >
-                  <img
-                    src="../../../assets/img/products/boom-lift-diagram-explanation-2.jpg"
-                    alt=""
-                    loading="lazy"
-                    width="1000"
-                    height="667"
-                  />
-                </button>
-              </div>
-            </div>
           </div>
           <div class="demo-block" style="margin-top: var(--space-8)">
             <h2
@@ -754,10 +623,17 @@
               </h2>
               <p>Compare our lifting platforms.</p>
 
-              <div>
-                <p style="font-weight: bold">
+              <div class="spec-pair">
+                <div class="spec-pair__media">
+                  <picture>
+                    <source srcset="../../../assets/img/products/self-propelled-scissor-lift-2.webp" type="image/webp" />
+                    <img src="../../../assets/img/products/self-propelled-scissor-lift-2.jpg" alt="Burgenton self-propelled hydraulic scissor lift, working position" loading="lazy" width="1000" height="667" />
+                  </picture>
+                </div>
+                <div>
+                <h3 style="margin-bottom: var(--space-3);">
                   Self-Propelled Hydraulic Scissor Lifts
-                </p>
+                </h3>
 
                 <div class="table-responsive">
                   <table>
@@ -851,14 +727,14 @@
                   </table>
                 </div>
                 <div style="margin-top: var(--space-8)">
-                  <h2
+                  <h4
                     style="
                       font-size: var(--text-h5);
                       margin-bottom: var(--space-4);
                     "
                   >
                     Important Features of Self-Propelled Hydraulic Scissor Lifts
-                  </h2>
+                  </h4>
                   <ul class="config-list">
                     <li>
                       <span class="config-list__marker"
@@ -897,10 +773,26 @@
                     </li>
                   </ul>
                 </div>
+                </div>
               </div>
 
-              <div>
-                <p style="font-weight: bold">Crawler (Track) Scissor Lifts</p>
+              <div class="spec-pair">
+                <div class="spec-pair__media" data-gallery>
+                  <div class="product-gallery__main">
+                    <picture>
+                      <source srcset="../../../assets/img/products/crawler-track-lift-1.webp" type="image/webp" />
+                      <img src="../../../assets/img/products/crawler-track-lift-1.jpg" alt="Burgenton crawler (track) scissor lift on uneven outdoor terrain" loading="lazy" width="1000" height="667" />
+                    </picture>
+                  </div>
+                  <div class="product-gallery__thumbs" style="margin-top: var(--space-3);">
+                    <button class="product-gallery__thumb is-active" type="button" data-full="../../../assets/img/products/crawler-track-lift-1.jpg" data-alt="Burgenton crawler (track) scissor lift, front view" aria-label="Show image 1"><img src="../../../assets/img/products/crawler-track-lift-1.jpg" alt="" loading="lazy" width="1000" height="667" /></button>
+                    <button class="product-gallery__thumb" type="button" data-full="../../../assets/img/products/crawler-track-lift-2.jpg" data-alt="Burgenton crawler (track) scissor lift, raised platform" aria-label="Show image 2"><img src="../../../assets/img/products/crawler-track-lift-2.jpg" alt="" loading="lazy" width="1000" height="667" /></button>
+                    <button class="product-gallery__thumb" type="button" data-full="../../../assets/img/products/crawler-track-lift-3.jpg" data-alt="Burgenton crawler (track) scissor lift, track detail" aria-label="Show image 3"><img src="../../../assets/img/products/crawler-track-lift-3.jpg" alt="" loading="lazy" width="1000" height="667" /></button>
+                    <button class="product-gallery__thumb" type="button" data-full="../../../assets/img/products/crawler-track-lift-4.jpg" data-alt="Burgenton crawler (track) scissor lift, on site" aria-label="Show image 4"><img src="../../../assets/img/products/crawler-track-lift-4.jpg" alt="" loading="lazy" width="1000" height="667" /></button>
+                  </div>
+                </div>
+                <div>
+                <h3 style="margin-bottom: var(--space-3);">Crawler (Track) Scissor Lifts</h3>
 
                 <div class="table-responsive">
                   <table>
@@ -1008,14 +900,14 @@
                   </table>
                 </div>
                 <div style="margin-top: var(--space-8)">
-                  <h2
+                  <h4
                     style="
                       font-size: var(--text-h5);
                       margin-bottom: var(--space-4);
                     "
                   >
                     Important Features of Crawler (Track) Scissor Lifts
-                  </h2>
+                  </h4>
                   <ul class="config-list">
                     <li>
                       <span class="config-list__marker"
@@ -1074,10 +966,24 @@
                     </li>
                   </ul>
                 </div>
+                </div>
               </div>
 
-              <div>
-                <p style="font-weight: bold">Articulating Boom Lifts</p>
+              <div class="spec-pair">
+                <div class="spec-pair__media" data-gallery>
+                  <div class="product-gallery__main">
+                    <picture>
+                      <source srcset="../../../assets/img/products/boom-lift-diagram-explanation-1.webp" type="image/webp" />
+                      <img src="../../../assets/img/products/boom-lift-diagram-explanation-1.jpg" alt="Burgenton articulating boom lift, extended reach diagram" loading="lazy" width="1000" height="667" />
+                    </picture>
+                  </div>
+                  <div class="product-gallery__thumbs" style="margin-top: var(--space-3);">
+                    <button class="product-gallery__thumb is-active" type="button" data-full="../../../assets/img/products/boom-lift-diagram-explanation-1.jpg" data-alt="Burgenton articulating boom lift, extended reach diagram" aria-label="Show image 1"><img src="../../../assets/img/products/boom-lift-diagram-explanation-1.jpg" alt="" loading="lazy" width="1000" height="667" /></button>
+                    <button class="product-gallery__thumb" type="button" data-full="../../../assets/img/products/boom-lift-diagram-explanation-2.jpg" data-alt="Burgenton articulating boom lift, working envelope diagram" aria-label="Show image 2"><img src="../../../assets/img/products/boom-lift-diagram-explanation-2.jpg" alt="" loading="lazy" width="1000" height="667" /></button>
+                  </div>
+                </div>
+                <div>
+                <h3 style="margin-bottom: var(--space-3);">Articulating Boom Lifts</h3>
 
                 <div class="table-responsive">
                   <table>
@@ -1199,14 +1105,14 @@
                   </table>
                 </div>
                 <div style="margin-top: var(--space-8)">
-                  <h2
+                  <h4
                     style="
                       font-size: var(--text-h5);
                       margin-bottom: var(--space-4);
                     "
                   >
                     Important Features of Articulating Boom Lifts
-                  </h2>
+                  </h4>
                   <ul class="config-list">
                     <li>
                       <span class="config-list__marker"
@@ -1269,6 +1175,7 @@
                       >Rear detection and driving confirmation system
                     </li>
                   </ul>
+                </div>
                 </div>
               </div>
             </section>

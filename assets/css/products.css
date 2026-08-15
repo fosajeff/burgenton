@@ -359,3 +359,165 @@
   font-size: var(--text-body-sm);
   color: var(--text-muted);
 }
+
+/* ---- Workflow flow (processing-line step diagram) ----
+   Used on multi-equipment "processing line" pages (Cashew, Palm Oil,
+   Peanut Butter) to render the source PDF's linear WORK FLOW as a
+   scannable chip strip. Wraps on narrow viewports instead of scrolling. */
+.workflow-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.workflow-flow__step {
+  background-color: var(--surface-tint);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.workflow-flow__arrow {
+  color: var(--color-accent-600);
+  flex-shrink: 0;
+  font-size: 13px;
+}
+
+/* ---- Dual CTA row (processing-line pages use two distinct CTAs per
+   source PDFs, instead of the single "Request a Quote" pattern) ---- */
+.dual-cta {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* ---- Spec section wrapper (pairs a configuration's photo with its own
+   spec table — the fix for images/specs being dissociated) ---- */
+.spec-pair {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .spec-pair {
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: var(--space-8);
+  }
+}
+
+.spec-pair__media img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.spec-pair + .spec-pair {
+  margin-top: var(--space-10);
+  padding-top: var(--space-10);
+  border-top: 1px solid var(--border-default);
+}
+
+/* ---- Compact spec-pair variant for the per-item equipment breakdown
+   (21 items on the palm-oil line) — tighter gap/media size than the
+   default spec-pair used for full-width configuration comparisons ---- */
+.equip-item {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: start;
+  min-width: 0; /* let the grid item shrink below its content's intrinsic width */
+}
+
+@media (min-width: 768px) {
+  .equip-item {
+    grid-template-columns: 200px 1fr;
+    gap: var(--space-6);
+  }
+}
+
+.equip-item__media img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+  background-color: var(--surface-tint);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+
+/* Each item's spec table is a short 2-column list (label + value), not a
+   dense data table — the sitewide `table { min-width: 700px }` rule (built
+   for wide comparison tables) would force horizontal scrolling on mobile
+   here for no reason, so this table sizes to its own content instead. */
+.equip-item .table-responsive table {
+  min-width: 0;
+}
+
+.equip-item tbody td {
+  text-align: left;
+}
+
+/* ---- Small reference-picture thumbnail for a data-table cell (e.g. block
+   shape per row in the production-capacity table) — not a full photo card,
+   just an inline icon sized to sit in a table row ---- */
+.table-thumb {
+  display: block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+.equip-item__number {
+  font-family: var(--font-mono);
+  color: var(--color-accent-600);
+  font-size: var(--text-body-sm);
+}
+
+.equip-item + .equip-item {
+  margin-top: var(--space-6);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-default);
+}
+
+
+/* ---- Workflow flow (process-line step chips, e.g. "Raw Cashew Nuts ->
+   Grading -> Cooking -> ... -> Vacuum Packaging"). Wraps on mobile;
+   reuses accent-600 for the connecting arrow to match .config-list__marker
+   and .process-step__number elsewhere in the system. ---- */
+.workflow-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.workflow-flow__step {
+  background-color: var(--surface-tint);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.workflow-flow__arrow {
+  color: var(--color-accent-600);
+  flex-shrink: 0;
+  font-size: var(--text-body-sm);
+}
+
+/* ---- Dual CTA row (e.g. "Request a Custom Quote" + "Speak with an
+   Equipment Specialist") — reuses .btn, just a named layout hook. ---- */
+.dual-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
