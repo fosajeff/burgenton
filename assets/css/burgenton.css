@@ -513,6 +513,21 @@ textarea:focus-visible,
   font-size: calc(var(--text-button) * 1.05);
 }
 
+/* Full-width CTA button for narrow containers (sidebar cards, stacked
+   mobile CTAs) — allows long uppercase labels to wrap onto a second
+   line with real breathing room instead of overflowing a fixed-width
+   nowrap button edge-to-edge. */
+.btn--full {
+  display: flex;
+  width: 100%;
+  height: auto;
+  min-height: 48px;
+  padding: var(--space-3) var(--space-6);
+  white-space: normal;
+  text-align: center;
+  line-height: 1.3;
+}
+
 /* Variants */
 .btn--primary {
   background-color: var(--color-accent-600);
@@ -789,12 +804,21 @@ textarea:focus-visible,
   color: var(--text-on-dark);
 }
 
+.trust-bar .trust-bar__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-5);
+}
+
 .trust-bar .trust-bar__row .trust-bar__item {
-  margin-right: 50px;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
 }
 
 .trust-bar .trust-bar__row .trust-bar__item .fas {
-  margin-right: 20px;
+  margin-right: var(--space-2);
   color: var(--color-accent-500);
 }
 
@@ -1247,13 +1271,8 @@ tbody tr:hover {
   .header-actions .btn {
     display: inline-flex;
   }
-  .trust-bar .trust-bar__row .trust-bar__item {
-    margin-right: 10px;
-  }
-
-  .trust-bar .trust-bar__row .trust-bar__item .fas {
-    margin-right: 10px;
-    color: var(--color-accent-500);
+  .trust-bar .trust-bar__row {
+    gap: var(--space-4) var(--space-8);
   }
 }
 
@@ -1312,13 +1331,59 @@ tbody tr:hover {
 }
 
 .mobile-nav__link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
   padding: var(--space-3) 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-family: var(--font-heading);
   font-size: var(--text-h5);
   font-weight: 700;
   color: var(--text-on-dark);
+}
+
+.mobile-nav__link[data-toggle="submenu"] {
+  cursor: pointer;
+}
+
+.mobile-nav__link[data-toggle="submenu"] i {
+  font-size: 0.65em;
+  color: var(--text-muted-on-dark);
+  transition: transform var(--duration-state) ease;
+  flex-shrink: 0;
+}
+
+.mobile-nav__link[aria-expanded="true"] i {
+  transform: rotate(180deg);
+}
+
+/* Collapsed by default; JS sets an explicit max-height (scrollHeight)
+   on open, so this just needs the transition + hidden overflow. */
+.mobile-nav__submenu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--duration-reveal) var(--ease-out);
+}
+
+.mobile-nav__submenu-label {
+  display: block;
+  padding: var(--space-3) 0 var(--space-1);
+  font-family: var(--font-body);
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-accent-500);
+}
+
+.mobile-nav__submenu-link {
+  display: block;
+  padding: var(--space-2) 0 var(--space-2) var(--space-4);
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  font-weight: 500;
+  color: var(--text-muted-on-dark);
 }
 
 .mobile-nav__social {
@@ -1646,4 +1711,179 @@ tbody tr:hover {
   body {
     padding-bottom: 64px;
   }
+}
+
+/* -------------------------------------------------------------------------
+   17. BLOG / ARTICLE
+   ---------------------------------------------------------------------- */
+
+/* Long-form heading/list/quote rhythm for .content-prose when it holds an
+   article body rather than short narrative copy (About page usage). */
+.content-prose h2 {
+  font-size: var(--text-h3);
+  margin-top: var(--space-10);
+  margin-bottom: var(--space-4);
+}
+
+.content-prose h3 {
+  font-size: var(--text-h5);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-3);
+}
+
+.content-prose ul,
+.content-prose ol {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-4);
+  padding-left: 1.25em;
+}
+
+.content-prose li + li {
+  margin-top: var(--space-2);
+}
+
+.content-prose blockquote {
+  margin: var(--space-6) 0;
+  padding: var(--space-5) var(--space-6);
+  border-left: 3px solid var(--color-accent-600);
+  background-color: var(--surface-tint);
+  font-family: var(--font-heading);
+  font-size: var(--text-body-lg);
+  font-weight: 600;
+  color: var(--color-primary-900);
+}
+
+.content-prose figure {
+  margin: var(--space-8) 0;
+}
+
+.content-prose figure img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  display: block;
+}
+
+.content-prose figcaption {
+  margin-top: var(--space-3);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted);
+}
+
+/* Category filter tabs — /blog/ hub. Reuses the .tag pill visual language
+   as interactive toggle buttons rather than inventing new chrome. */
+.blog-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-8);
+}
+
+.blog-filter__btn {
+  font-family: inherit;
+  font-size: var(--text-body-sm);
+  font-weight: 600;
+  padding: var(--space-2) var(--space-5);
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--border-default);
+  background-color: transparent;
+  color: var(--text-body);
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.blog-filter__btn:hover {
+  border-color: var(--color-accent-600);
+  color: var(--color-accent-600);
+}
+
+.blog-filter__btn.is-active {
+  border-color: var(--color-accent-600);
+  background-color: var(--color-accent-600);
+  color: var(--text-on-dark);
+}
+
+/* Article body + related-product sidebar layout. Mobile-first single
+   column; sidebar sits alongside the prose column from tablet-landscape
+   up. (Deliberately not reusing the undefined .split class already
+   referenced elsewhere in the markup — it has no grid rule backing it,
+   so anything using it currently just stacks full-width.) */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+
+@media (min-width: 992px) {
+  .article-layout {
+    grid-template-columns: minmax(0, 1fr) 320px;
+    align-items: start;
+  }
+}
+
+/* Author / date / read-time byline row used under article H1s. */
+.article-byline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  margin-top: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-body-sm);
+  color: var(--text-muted-on-dark);
+}
+
+/* Editorial "1 featured + list" layout for blog teasers (homepage and
+   /blog/ hub) — an asymmetric alternative to a uniform card grid so a
+   lead story reads as a lead story. Mobile-first single column. */
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 992px) {
+  .featured-grid {
+    grid-template-columns: 1.4fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.featured-grid__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.featured-grid__list-item {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featured-grid__list-item:hover {
+  border-color: var(--color-accent-600);
+  box-shadow: var(--shadow-sm);
+}
+
+.featured-grid__list-item img {
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  flex-shrink: 0;
+}
+
+.featured-grid__list-item h3 {
+  font-size: var(--text-body);
+  margin-bottom: var(--space-1);
+}
+
+.article-byline i {
+  color: var(--color-accent-500);
+  margin-right: var(--space-2);
 }

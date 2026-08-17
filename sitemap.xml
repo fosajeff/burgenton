@@ -121,9 +121,39 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.burgenton.com/resources/articles/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.burgenton.com/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.burgenton.com/blog/construction/</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.burgenton.com/blog/agro-processing/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.burgenton.com/blog/construction/why-self-loading-mobile-concrete-mixers-are-transforming-construction-in-africa/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.burgenton.com/blog/construction/choosing-the-right-construction-equipment-for-your-project/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.burgenton.com/blog/agro-processing/why-value-addition-is-the-future-of-agriculture-in-africa/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.burgenton.com/blog/agro-processing/from-harvest-to-market-how-modern-agro-processing-equipment-increases-profitability/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.burgenton.com/resources/equipment-guides/</loc>
