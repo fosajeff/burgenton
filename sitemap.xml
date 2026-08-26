@@ -71,6 +71,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.burgenton.com/products/agro-processing/peanut-butter-processing-equipment/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.burgenton.com/products/construction/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -154,6 +159,11 @@
     <loc>https://www.burgenton.com/blog/agro-processing/from-harvest-to-market-how-modern-agro-processing-equipment-increases-profitability/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.burgenton.com/resources/articles/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.burgenton.com/resources/equipment-guides/</loc>

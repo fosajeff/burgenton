@@ -59,7 +59,7 @@
   --surface-dark: var(--color-primary-900);
   --surface-dark-raised: var(--color-primary-600);
   --surface-footer: var(--color-primary-700);
-  --text-body: var(--color-primary-900);
+  --color-text-body: var(--color-primary-900);
   --text-muted: var(--color-neutral-500);
   --text-muted-on-dark: var(--color-neutral-400);
   --text-on-dark: var(--color-primary-0);
@@ -179,7 +179,7 @@ body {
   font-size: var(--text-body);
   font-weight: 400;
   line-height: 1.75;
-  color: var(--text-body);
+  color: var(--color-text-body);
   background-color: var(--surface-page);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -194,7 +194,7 @@ h6 {
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--text-body);
+  color: var(--color-text-body);
 }
 
 h1 {
@@ -453,6 +453,48 @@ textarea:focus-visible,
   }
 }
 
+/* Two-column "text next to media" layout used throughout section content
+   (About, Contact, product/solution pages, homepage). Single column until
+   desktop, where .split--reverse flips the media to the right. */
+.split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (min-width: 992px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-10);
+  }
+  .split--reverse .split__media {
+    order: 2;
+  }
+}
+
+.split__media img {
+  border-radius: var(--radius-lg);
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.split__media.is-flat {
+  background-color: var(--surface-dark-raised);
+  border-radius: var(--radius-lg);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.split__media.is-flat i {
+  font-size: 64px;
+  color: var(--color-accent-500);
+  opacity: 0.8;
+}
+
 /* -------------------------------------------------------------------------
    05. BUTTON SYSTEM
    ---------------------------------------------------------------------- */
@@ -694,7 +736,7 @@ textarea:focus-visible,
   font-family: var(--font-heading);
   font-size: var(--text-h4);
   font-weight: 700;
-  color: var(--text-body);
+  color: var(--color-text-body);
 }
 
 .card__text {
@@ -893,7 +935,7 @@ textarea:focus-visible,
 .form-label {
   font-size: var(--text-body-sm);
   font-weight: 600;
-  color: var(--text-body);
+  color: var(--color-text-body);
 }
 
 .is-on-dark .form-label {
@@ -906,7 +948,7 @@ textarea:focus-visible,
   padding: 0 var(--space-3);
   font-family: var(--font-body);
   font-size: var(--text-body);
-  color: var(--text-body);
+  color: var(--color-text-body);
   background-color: var(--surface-page);
   border: 1.5px solid var(--color-neutral-200);
   border-radius: var(--radius-sm);
@@ -1208,7 +1250,7 @@ tbody tr:hover {
   transform: translateX(-50%) translateY(8px);
   min-width: 240px;
   background-color: var(--surface-page);
-  color: var(--text-body);
+  color: var(--color-text-body);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-lg);
   padding: var(--space-3);
@@ -1561,7 +1603,7 @@ tbody tr:hover {
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-full);
   border: 1.5px solid var(--border-default);
-  color: var(--text-body);
+  color: var(--color-text-body);
 }
 
 .is-on-dark .tag,
@@ -1654,7 +1696,7 @@ tbody tr:hover {
   gap: var(--space-2);
   font-size: var(--text-body-sm);
   font-weight: 600;
-  color: var(--text-body);
+  color: var(--color-text-body);
 }
 
 .story-card__meta i {
@@ -1692,7 +1734,7 @@ tbody tr:hover {
 .mobile-cta-bar .btn-icon {
   flex: 0 0 auto;
   background-color: var(--surface-tint);
-  color: var(--text-body);
+  color: var(--color-text-body);
 }
 
 @media (min-width: 768px) {
@@ -1787,7 +1829,7 @@ tbody tr:hover {
   border-radius: var(--radius-full);
   border: 1.5px solid var(--border-default);
   background-color: transparent;
-  color: var(--text-body);
+  color: var(--color-text-body);
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
 }
