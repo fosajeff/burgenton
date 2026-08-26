@@ -1083,10 +1083,6 @@ tbody tr:hover {
 }
 
 @media (max-width: 768px) {
-  body {
-    padding: 20px 10px;
-  }
-
   .specification-section h2 {
     font-size: 1.6rem;
   }
