@@ -157,6 +157,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -183,6 +184,7 @@ body {
   background-color: var(--surface-page);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 h1,
@@ -418,6 +420,33 @@ textarea:focus-visible,
   .container {
     padding-left: var(--space-4);
     padding-right: var(--space-4);
+  }
+
+  /* Long button labels (e.g. "Explore Agro-Processing Equipment") were
+     forcing their fixed-height buttons wider than the viewport with
+     white-space: nowrap, pushing the page into horizontal overflow. */
+  .btn {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .btn--sm,
+  .btn--md,
+  .btn--lg {
+    height: auto;
+    min-height: 36px;
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+  }
+
+  /* Homepage hero lead paragraph ran to 6+ lines on narrow screens,
+     pushing the CTAs below the fold. Clamp to a 2-line teaser instead
+     of removing it outright, since mobile is the majority of traffic. */
+  .hero-slider__content .text-lead {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
   }
 }
 
@@ -1358,11 +1387,15 @@ tbody tr:hover {
   padding: var(--space-5);
   overflow-y: auto;
   transform: translateX(100%);
-  transition: transform var(--duration-reveal) var(--ease-out);
+  visibility: hidden;
+  transition:
+    transform var(--duration-reveal) var(--ease-out),
+    visibility var(--duration-reveal);
 }
 
 .mobile-nav.is-active {
   transform: translateX(0);
+  visibility: visible;
 }
 
 @media (min-width: 992px) {
@@ -1704,55 +1737,14 @@ tbody tr:hover {
 }
 
 /* -------------------------------------------------------------------------
-   16. MOBILE STICKY CTA BAR
-   Fixes a confirmed CRO/mobile-UX bug: the header's "Request a Quote"
-   button is display:none below 768px (see §09 .header-actions .btn),
-   which meant mobile visitors — the majority of traffic in this market —
-   had no primary CTA visible anywhere except by opening the hamburger
-   menu or scrolling to a page-end band. This bar is the mobile
-   equivalent of that header CTA, shown only below 768px.
+   16. MOBILE STICKY CTA BAR — removed per product decision (was leaving a
+   reserved white gap at the bottom of every mobile page and duplicating
+   the in-page "Request a Quote" CTAs). Kept hidden rather than deleting
+   the markup from every page, since it's still duplicated in every
+   template's HTML.
    ---------------------------------------------------------------------- */
 .mobile-cta-bar {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: var(--z-sticky-header);
-  display: flex;
-  gap: var(--space-3);
-  padding: var(--space-3) var(--space-4);
-  padding-bottom: max(var(--space-3), env(safe-area-inset-bottom));
-  background-color: var(--surface-page);
-  border-top: 1px solid var(--border-default);
-  box-shadow: var(--shadow-lg);
-}
-
-.mobile-cta-bar .btn {
-  flex: 1;
-}
-
-.mobile-cta-bar .btn-icon {
-  flex: 0 0 auto;
-  background-color: var(--surface-tint);
-  color: var(--color-text-body);
-}
-
-@media (min-width: 768px) {
-  .mobile-cta-bar {
-    display: none;
-  }
-}
-
-/* Keeps the floating scroll-to-top button from overlapping the bar, and
-   stops the bar itself from covering the last bit of footer content. */
-@media (max-width: 767.98px) {
-  .scroll-to-top {
-    bottom: calc(var(--space-5) + 64px);
-  }
-
-  body {
-    padding-bottom: 64px;
-  }
+  display: none;
 }
 
 /* -------------------------------------------------------------------------

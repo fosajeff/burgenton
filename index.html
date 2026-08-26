@@ -57,11 +57,23 @@
 		.hero-slider__content h1 { color: var(--text-on-dark); }
 		.hero-slider__eyebrow-tag { display: inline-block; font-size: var(--text-body-sm); font-weight: 600; color: var(--color-accent-500); margin-bottom: var(--space-2); transition: opacity .3s ease; }
 		@media (max-width: 767.98px) {
-			.hero-slider { min-height: 620px; }
+			/* Shorter box on mobile: the old 620px height, combined with
+			   object-fit: cover on wide landscape photos, cropped down to a
+			   thin center strip of mostly sky. A shorter box needs less
+			   vertical crop to "cover", so more of the actual equipment shows. */
+			.hero-slider { min-height: 520px; }
 			/* Extra bottom padding reserves room for the absolutely-positioned
 			   controls bar so the (up to 3, stacked) CTA buttons never collide
 			   with the dots/pause row on short mobile viewports. */
-			.hero-slider__content { padding: var(--space-12) 0 calc(var(--space-8) + 56px); }
+			.hero-slider__content { padding: var(--space-10) 0 calc(var(--space-8) + 56px); }
+			/* The three stacked CTAs (incl. "Explore Agro-Processing Equipment")
+			   were full-size .btn--lg — oversized and dominant on a phone screen. */
+			.hero-slider__content .btn {
+				height: auto;
+				min-height: 40px;
+				padding: var(--space-2) var(--space-4);
+				font-size: var(--text-body-sm);
+			}
 		}
 
 		/* Manual navigation: dots + arrows + pause toggle (WCAG 2.2.2 —
